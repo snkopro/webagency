@@ -6,7 +6,12 @@
   <title>Mathias — Webdesigner & développeur en Seine-et-Marne</title>
   <meta name="description" content="Création de sites web sur mesure pour artisans, commerçants et indépendants en Seine-et-Marne." />
   <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://snkopro.github.io/webagency/" />
+  <meta property="og:title" content="Mathias — Création de sites web sur mesure" />
+  <meta property="og:description" content="Sites web sur mesure pour artisans, commerçants et indépendants en Seine-et-Marne." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
 
@@ -17,11 +22,12 @@
 
   <!-- HEADER -->
   <header class="header">
-    <a href="/" class="logo">Mathias<span class="dot">.</span></a>
+    <a href="#" class="logo">Mathias<span class="dot">.</span></a>
     <nav class="nav">
       <a href="#realisations">Réalisations</a>
       <a href="#services">Services</a>
       <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
     </nav>
     <a href="mailto:contact@tondomaine.fr" class="btn btn-dark">contact@tondomaine.fr</a>
     <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span></button>
@@ -31,6 +37,7 @@
     <a href="#realisations">Réalisations <span>→</span></a>
     <a href="#services">Services <span>→</span></a>
     <a href="#apropos">À propos <span>→</span></a>
+    <a href="#contact">Contact <span>→</span></a>
     <a href="mailto:contact@tondomaine.fr" class="btn btn-dark">contact@tondomaine.fr</a>
   </div>
 
@@ -76,16 +83,170 @@
     </div>
 
     <div class="hero-ctas">
-      <a href="mailto:contact@tondomaine.fr" class="btn btn-dark">Vous avez besoin d'un site</a>
+      <a href="#contact" class="btn btn-dark">Vous avez besoin d'un site</a>
       <a href="#realisations" class="btn btn-light">Voir mes réalisations</a>
     </div>
   </main>
+
+  <!-- BANDEAU MÉTIERS -->
+  <section class="marquee" aria-label="Secteurs accompagnés">
+    <div class="marquee-track">
+      <span>Artisans</span><span class="o">Commerces</span><span>Restaurants</span><span class="o">Indépendants</span><span>Plombiers</span><span class="o">Coiffeurs</span><span>Paysagistes</span><span class="o">Coachs</span>
+      <span>Artisans</span><span class="o">Commerces</span><span>Restaurants</span><span class="o">Indépendants</span><span>Plombiers</span><span class="o">Coiffeurs</span><span>Paysagistes</span><span class="o">Coachs</span>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="section-head">
+      <h2 class="h2 reveal">Services</h2>
+      <p class="lead reveal">Un site pensé pour une chose : que vos futurs clients vous trouvent et vous contactent.</p>
+    </div>
+    <div class="services">
+      <article class="service reveal">
+        <span class="num">01</span>
+        <h3>Site vitrine sur mesure</h3>
+        <p>Un design unique, adapté à votre métier. Rapide, lisible sur mobile, avec vos réalisations et un formulaire de contact.</p>
+        <ul><li>Design 100 % personnalisé</li><li>Jusqu'à 5 pages</li><li>Formulaire de contact</li></ul>
+        <p class="price">Sur devis</p>
+      </article>
+      <article class="service reveal">
+        <span class="num">02</span>
+        <h3>Visibilité Google</h3>
+        <p>Référencement local et fiche Google Business optimisée pour apparaître quand on cherche votre métier près de chez vous.</p>
+        <ul><li>Référencement local</li><li>Fiche Google Business</li><li>Suivi des positions</li></ul>
+        <p class="price">Inclus dans chaque site</p>
+      </article>
+      <article class="service reveal">
+        <span class="num">03</span>
+        <h3>Suivi &amp; entretien</h3>
+        <p>Hébergement, mises à jour, sécurité et petites modifications. Vous vous occupez de votre métier, je m'occupe du site.</p>
+        <ul><li>Hébergement &amp; nom de domaine</li><li>Modifications illimitées</li><li>Sauvegardes &amp; sécurité</li></ul>
+        <p class="price">100 € / mois</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- RÉALISATIONS -->
+  <section class="section" id="realisations">
+    <div class="section-head">
+      <h2 class="h2 reveal">Réalisations</h2>
+      <div class="filters reveal" role="tablist" aria-label="Filtrer par secteur">
+        <button class="filter is-active" data-filter="all">Tous</button>
+        <button class="filter" data-filter="artisan">Artisans</button>
+        <button class="filter" data-filter="commerce">Commerces</button>
+        <button class="filter" data-filter="restaurant">Restaurants</button>
+        <button class="filter" data-filter="independant">Indépendants</button>
+      </div>
+    </div>
+    <div class="projects">
+      <a class="project reveal" data-cat="artisan" href="#">
+        <div class="project-img"><span>Capture du site</span></div>
+        <div class="project-info"><h3>Nom du client</h3><span>Artisan</span></div>
+      </a>
+      <a class="project reveal" data-cat="commerce" href="#">
+        <div class="project-img"><span>Capture du site</span></div>
+        <div class="project-info"><h3>Nom du client</h3><span>Commerce</span></div>
+      </a>
+      <a class="project reveal" data-cat="restaurant" href="#">
+        <div class="project-img"><span>Capture du site</span></div>
+        <div class="project-info"><h3>Nom du client</h3><span>Restaurant</span></div>
+      </a>
+      <a class="project reveal" data-cat="independant" href="#">
+        <div class="project-img"><span>Capture du site</span></div>
+        <div class="project-info"><h3>Nom du client</h3><span>Indépendant</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MÉTHODE -->
+  <section class="section" id="methode">
+    <div class="section-head">
+      <h2 class="h2 reveal">Méthode</h2>
+      <p class="lead reveal">Simple, rapide, sans jargon. Vous savez toujours où on en est.</p>
+    </div>
+    <ol class="steps">
+      <li class="reveal"><span class="step-num">1</span><div><h3>On échange</h3><p>Un appel de 20 minutes pour comprendre votre activité, vos clients et vos objectifs.</p></div></li>
+      <li class="reveal"><span class="step-num">2</span><div><h3>Je conçois</h3><p>Une maquette sur mesure que vous validez avant que je commence à développer.</p></div></li>
+      <li class="reveal"><span class="step-num">3</span><div><h3>Je développe</h3><p>Un site rapide, adapté au mobile et prêt pour Google.</p></div></li>
+      <li class="reveal"><span class="step-num">4</span><div><h3>On lance</h3><p>Mise en ligne, puis suivi pour que votre site reste à jour et continue de vous apporter des clients.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- À PROPOS -->
+  <section class="section about" id="apropos">
+    <div class="about-photo reveal"><span>Ta photo</span></div>
+    <div class="about-text">
+      <h2 class="h2 reveal">À propos</h2>
+      <p class="reveal">Avant de créer des sites, j'ai travaillé sur les chantiers. Je sais ce que c'est de manquer de temps et de vouloir des résultats concrets.</p>
+      <p class="reveal">Pas d'agence, pas d'intermédiaire : vous parlez directement à la personne qui conçoit et développe votre site. Je travaille avec les artisans, commerçants, restaurants et indépendants de Seine-et-Marne et d'ailleurs.</p>
+      <a href="#contact" class="btn btn-dark reveal">Parlons de votre projet</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-head">
+      <h2 class="h2 reveal">Questions</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>Combien coûte un site ?</summary><p>Chaque site est sur mesure, donc le prix dépend de vos besoins. Je vous envoie un devis clair et gratuit après un premier échange.</p></details>
+      <details class="reveal"><summary>Combien de temps pour avoir mon site ?</summary><p>En général deux à quatre semaines entre notre premier appel et la mise en ligne, selon la rapidité des échanges.</p></details>
+      <details class="reveal"><summary>Est-ce que je pourrai modifier mon site ?</summary><p>Oui. Avec le suivi mensuel, je fais les modifications pour vous. Vous pouvez aussi demander un accès pour modifier vous-même les textes.</p></details>
+      <details class="reveal"><summary>Je n'ai ni photos ni textes, c'est un problème ?</summary><p>Non. Je vous aide à rédiger les textes et à choisir les visuels pour que votre site soit prêt sans prise de tête.</p></details>
+      <details class="reveal"><summary>Le site m'appartient-il ?</summary><p>Oui, le nom de domaine et le contenu sont à vous.</p></details>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="contact-intro">
+      <h2 class="h2 reveal">Un projet&nbsp;?</h2>
+      <p class="lead reveal">Décrivez-moi votre activité en quelques lignes. Réponse sous 24 h, devis gratuit.</p>
+      <p class="contact-direct reveal">
+        <a href="mailto:contact@tondomaine.fr">contact@tondomaine.fr</a><br />
+        <a href="tel:+33600000000">06 00 00 00 00</a>
+      </p>
+    </div>
+    <form class="form reveal" id="contact-form" novalidate>
+      <div class="field"><label for="f-name">Nom *</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
+      <div class="field"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
+      <div class="field"><label for="f-phone">Téléphone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" /></div>
+      <div class="field"><label for="f-activity">Activité *</label>
+        <select id="f-activity" name="activity" required>
+          <option value="">Choisir…</option><option>Artisan</option><option>Commerce</option><option>Restaurant</option><option>Indépendant</option><option>Autre</option>
+        </select>
+      </div>
+      <div class="field field-full"><label for="f-message">Votre projet *</label><textarea id="f-message" name="message" rows="5" required></textarea></div>
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <div class="field-full form-foot">
+        <button type="submit" class="btn btn-dark">Envoyer la demande</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <a href="#" class="logo">Mathias<span class="dot">.</span></a>
+      <nav class="footer-nav">
+        <a href="#realisations">Réalisations</a><a href="#services">Services</a><a href="#apropos">À propos</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> Mathias — Création de sites web, Seine-et-Marne</p>
+      <div class="footer-links">
+        <a href="#">Instagram</a><a href="#">LinkedIn</a><a href="mentions-legales.html">Mentions légales</a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Curseur personnalisé -->
   <div class="cursor" aria-hidden="true">
     <svg viewBox="0 0 24 24" width="22" height="22"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
