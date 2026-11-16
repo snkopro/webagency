@@ -1,113 +1,80 @@
-const hero = document.querySelector('.hero');
-const titles = document.querySelectorAll('.title');
-const wrap = document.querySelector('.title-wrap');
+// ===== Header =====
+const header = document.querySelector('.header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
 
-// Taille du titre : la ligne la plus longue remplit toute la largeur
-function fitTitle() {
-  const probe = document.querySelector('.title-top .l2');
-  hero.style.setProperty('--title-size', '100px');
-  const range = document.createRange();
-  range.selectNodeContents(probe);
-  const ratio = wrap.clientWidth / range.getBoundingClientRect().width;
-  const size = Math.min(100 * ratio, window.innerHeight * 0.25);
-  hero.style.setProperty('--title-size', size + 'px');
-}
-document.fonts.ready.then(fitTitle);
-window.addEventListener('resize', fitTitle);
-
-// Survol : la ligne survolée devient pleine
-document.querySelectorAll('.title-top .line').forEach((line) => {
-  line.addEventListener('mouseenter', () => {
-    hero.dataset.active = line.dataset.line;
-    cursor.classList.add('show');
-  });
-  line.addEventListener('mouseleave', () => cursor.classList.remove('show'));
-});
-
-// Curseur rond qui suit la souris
-const cursor = document.querySelector('.cursor');
-let mx = 0, my = 0, cx = 0, cy = 0;
-window.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
-(function loop() {
-  cx += (mx - cx) * 0.2;
-  cy += (my - cy) * 0.2;
-  cursor.style.left = cx + 'px';
-  cursor.style.top = cy + 'px';
-  requestAnimationFrame(loop);
-})();
-
-// Écran de chargement : on le retire du DOM après l'animation
-const loader = document.querySelector('.loader');
-loader.addEventListener('animationend', (e) => {
-  if (e.animationName === 'loaderOut') loader.remove();
-});
-
-// Menu mobile
+// ===== Menu mobile =====
 const burger = document.querySelector('.burger');
 const mobileMenu = document.querySelector('.mobile-menu');
-burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
+function setMenu(open) {
+  burger.classList.toggle('open', open);
+  mobileMenu.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+}
+burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
-// Ferme le menu mobile quand on clique sur un lien
-mobileMenu.querySelectorAll('a').forEach((a) =>
-  a.addEventListener('click', () => {
-    burger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  })
-);
+// ===== Le chantier : le site se construit pendant qu'on descend =====
+const build = document.querySelector('.build');
+const buildLabel = document.querySelector('.build-step');
+const labels = ['Terrain vierge', 'Étape 1 : le plan', 'Étape 2 : le gros œuvre', 'Étape 3 : les finitions', 'Étape 4 : la réception', 'Étape 5 : l\'entretien'];
+const stages = document.querySelectorAll('[data-stage]:not(.build)');
 
-// Apparition douce au scroll
-const revealObserver = new IntersectionObserver(
-  (entries) => entries.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
-  }),
-  { threshold: 0.12 }
-);
-document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+function setStage(n) {
+  if (build.dataset.stage === String(n)) return;
+  build.dataset.stage = n;
+  build.classList.toggle('built', n >= 2);
+  build.classList.toggle('online', n >= 4);
+  buildLabel.textContent = labels[n];
+  stages.forEach((s) => s.classList.toggle('is-active', s.dataset.stage === String(n)));
+}
 
-// Carrousel "Derniers projets"
-const track = document.querySelector('.slider-track');
-document.querySelectorAll('.slider-arrow').forEach((btn) =>
-  btn.addEventListener('click', () => {
-    const card = track.querySelector('.pcard');
-    const step = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || 64);
-    track.scrollBy({ left: btn.classList.contains('next') ? step : -step, behavior: 'smooth' });
-  })
-);
-
-// Avis empilés
-const reviews = [...document.querySelectorAll('.review')];
-let ri = 0;
-function renderReviews() {
-  const n = reviews.length;
-  reviews.forEach((r, i) => {
-    r.classList.toggle('is-current', i === ri);
-    r.classList.toggle('is-prev', n > 2 && i === (ri - 1 + n) % n);
-    r.classList.toggle('is-next', n > 1 && i === (ri + 1) % n);
+// L'étape active est celle qui passe au milieu de l'écran
+function updateStage() {
+  const middle = window.innerHeight * (window.innerWidth <= 960 ? 0.8 : 0.55);
+  let current = 0;
+  stages.forEach((s) => {
+    if (s.getBoundingClientRect().top < middle) current = Number(s.dataset.stage);
   });
+  setStage(current);
 }
-if (reviews.length) {
-  renderReviews();
-  document.querySelector('.stack-arrow.next').addEventListener('click', () => { ri = (ri + 1) % reviews.length; renderReviews(); });
-  document.querySelector('.stack-arrow.prev').addEventListener('click', () => { ri = (ri - 1 + reviews.length) % reviews.length; renderReviews(); });
-}
+window.addEventListener('scroll', updateStage, { passive: true });
+window.addEventListener('resize', updateStage);
+updateStage();
 
-// FAQ : une seule question ouverte à la fois
-document.querySelectorAll('.faq details').forEach((d) =>
-  d.addEventListener('toggle', () => {
-    if (d.open) document.querySelectorAll('.faq details').forEach((o) => { if (o !== d) o.open = false; });
+// ===== Réalisations : flèches =====
+const track = document.querySelector('.work-track');
+document.querySelectorAll('.arrow').forEach((btn) =>
+  btn.addEventListener('click', () => {
+    const card = track.querySelector('.project');
+    track.scrollBy({ left: (card.offsetWidth + 28) * Number(btn.dataset.dir), behavior: 'smooth' });
   })
 );
 
-// Année du footer
+// ===== FAQ : une seule réponse ouverte =====
+const faqItems = document.querySelectorAll('.faq details');
+faqItems.forEach((d) =>
+  d.addEventListener('toggle', () => {
+    if (d.open) faqItems.forEach((o) => { if (o !== d) o.open = false; });
+  })
+);
+
+// ===== Lien actif dans le menu =====
+const navLinks = document.querySelectorAll('.nav a');
+const sectionObserver = new IntersectionObserver(
+  (entries) => entries.forEach((e) => {
+    if (e.isIntersecting) navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  }),
+  { rootMargin: '-45% 0px -50% 0px' }
+);
+document.querySelectorAll('#chantier, #realisations, #tarifs, #apropos').forEach((s) => sectionObserver.observe(s));
+
+// ===== Année =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // ===== Formulaire de contact =====
 // Pour recevoir les messages directement : crée un formulaire gratuit sur https://formspree.io
 // et colle l'adresse fournie ci-dessous (ex. "https://formspree.io/f/abcdwxyz").
-// Tant que c'est vide, le formulaire ouvre l'email du visiteur avec le message pré-rempli.
+// Tant que c'est vide, le formulaire ouvre la messagerie du visiteur avec le message pré-rempli.
 const FORM_ENDPOINT = '';
 const CONTACT_EMAIL = 'contact@tondomaine.fr';
 
@@ -117,11 +84,10 @@ const statusEl = form.querySelector('.form-status');
 function validate() {
   let ok = true;
   form.querySelectorAll('[required]').forEach((input) => {
-    const field = input.closest('.field');
     const valid = input.type === 'email'
       ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())
       : input.value.trim() !== '';
-    field.classList.toggle('has-error', !valid);
+    input.closest('.field').classList.toggle('has-error', !valid);
     if (!valid) ok = false;
   });
   return ok;
@@ -131,18 +97,18 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   statusEl.className = 'form-status';
   if (!validate()) {
-    statusEl.textContent = 'Merci de remplir les champs obligatoires.';
+    statusEl.textContent = 'Remplissez votre nom, votre email, votre activité et votre projet.';
     statusEl.classList.add('err');
     return;
   }
-  if (form._gotcha.value) return; // anti-spam
+  if (form._gotcha.value) return;
 
   const data = Object.fromEntries(new FormData(form));
   delete data._gotcha;
 
   if (!FORM_ENDPOINT) {
     const body = `Nom : ${data.name}\nEmail : ${data.email}\nTéléphone : ${data.phone || '-'}\nActivité : ${data.activity}\n\n${data.message}`;
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Demande de site — ' + data.name)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Demande de devis — ' + data.name)}&body=${encodeURIComponent(body)}`;
     return;
   }
 
@@ -157,10 +123,10 @@ form.addEventListener('submit', async (e) => {
     });
     if (!res.ok) throw new Error();
     form.reset();
-    statusEl.textContent = 'Merci ! Votre demande est bien envoyée, je vous réponds sous 24 h.';
+    statusEl.textContent = 'Demande envoyée. Je vous réponds sous 24 h.';
     statusEl.classList.add('ok');
   } catch {
-    statusEl.textContent = `Oups, l'envoi a échoué. Écrivez-moi directement à ${CONTACT_EMAIL}.`;
+    statusEl.textContent = `L'envoi n'a pas abouti. Écrivez-moi directement à ${CONTACT_EMAIL}.`;
     statusEl.classList.add('err');
   } finally {
     btn.disabled = false;

@@ -3,259 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mathias — Webdesigner & développeur en Seine-et-Marne</title>
-  <meta name="description" content="Création de sites web sur mesure pour artisans, commerçants et indépendants en Seine-et-Marne." />
-  <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <title>Mathias — Sites web sur mesure en Seine-et-Marne</title>
+  <meta name="description" content="Sites web sur mesure pour artisans, commerces, restaurants et indépendants. Construits comme une maison : un plan solide, du sur-mesure, des finitions propres." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://snkopro.github.io/webagency/" />
-  <meta property="og:title" content="Mathias — Création de sites web sur mesure" />
-  <meta property="og:description" content="Sites web sur mesure pour artisans, commerçants et indépendants en Seine-et-Marne." />
+  <meta property="og:title" content="Mathias — Sites web sur mesure" />
+  <meta property="og:description" content="Un site web, ça se construit comme une maison." />
   <meta property="og:type" content="website" />
-  <script>document.documentElement.classList.replace("no-js","js")</script>
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="preload" href="fonts/big-shoulders-display-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <script>document.documentElement.classList.replace("no-js", "js")</script>
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
 
-  <!-- Écran de chargement -->
-  <div class="loader" aria-hidden="true">
-    <span class="logo logo-light">Mathias<span class="dot">.</span></span>
-  </div>
-
-  <!-- HEADER -->
   <header class="header">
-    <a href="#" class="logo">Mathias<span class="dot">.</span></a>
-    <nav class="nav">
+    <a href="#top" class="logo">Mathias<span class="dot">.</span></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#chantier">Ma méthode</a>
       <a href="#realisations">Réalisations</a>
-      <a href="#services">Services</a>
+      <a href="#tarifs">Tarifs</a>
       <a href="#apropos">À propos</a>
-      <a href="#contact">Contact</a>
     </nav>
-    <a href="mailto:contact@tondomaine.fr" class="btn btn-dark">contact@tondomaine.fr</a>
-    <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span></button>
+    <a href="#contact" class="btn btn-blue">Demander un devis</a>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
   </header>
 
   <div class="mobile-menu">
-    <a href="#realisations">Réalisations <span>→</span></a>
-    <a href="#services">Services <span>→</span></a>
-    <a href="#apropos">À propos <span>→</span></a>
-    <a href="#contact">Contact <span>→</span></a>
-    <a href="mailto:contact@tondomaine.fr" class="btn btn-dark">contact@tondomaine.fr</a>
+    <a href="#chantier">Ma méthode</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#apropos">À propos</a>
+    <a href="#contact" class="btn btn-blue">Demander un devis</a>
   </div>
 
-  <!-- HERO -->
-  <main class="hero" data-active="1">
-    <p class="hello">👋, je m'appelle Mathias et je suis</p>
+  <main id="top">
 
-    <div class="title-wrap">
-      <!-- Couche du fond : la ligne active est pleine, derrière la photo -->
-      <div class="title title-base" aria-hidden="true">
-        <span class="line l1">Webdesigner</span>
-        <span class="line l2">&amp; Développeur</span>
+    <!-- ======== HERO + CHANTIER : le site se construit pendant qu'on descend ======== -->
+    <div class="story">
+
+      <div class="story-text">
+        <section class="hero" data-stage="0">
+          <p class="hero-kicker">Création de sites web en Seine-et-Marne</p>
+          <h1 class="hero-title">Un site web, ça se construit comme une maison.</h1>
+          <p class="hero-lead">J'ai passé deux ans sur les chantiers avant de créer des sites. Je construis le vôtre de la même façon&nbsp;: un plan solide, du sur-mesure et des finitions propres.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-blue">Demander un devis gratuit</a>
+            <a href="#chantier" class="btn btn-line">Voir comment je travaille</a>
+          </div>
+          <p class="scroll-hint" aria-hidden="true"><span></span>Descendez, le chantier commence</p>
+        </section>
+
+        <div id="chantier" class="steps">
+          <section class="step" data-stage="1">
+            <p class="step-num">1</p>
+            <h2 class="step-title">Le plan</h2>
+            <p>On s'appelle vingt minutes. Vous me parlez de votre métier, de vos clients, de ce que vous voulez qu'ils fassent en arrivant sur le site&nbsp;: appeler, demander un devis, réserver.</p>
+            <p>Je dessine ensuite la structure de chaque page. Rien n'est construit tant que le plan ne vous convient pas.</p>
+          </section>
+
+          <section class="step" data-stage="2">
+            <p class="step-num">2</p>
+            <h2 class="step-title">Le gros œuvre</h2>
+            <p>Je crée un design à votre image&nbsp;: vos couleurs, vos photos, vos réalisations. Pas de modèle tout fait, chaque site est dessiné pour l'entreprise qui le porte.</p>
+            <p>Vous validez la maquette avant que je passe au développement.</p>
+          </section>
+
+          <section class="step" data-stage="3">
+            <p class="step-num">3</p>
+            <h2 class="step-title">Les finitions</h2>
+            <p>Le site est rapide, lisible sur téléphone et préparé pour Google&nbsp;: bons mots-clés, fiche Google Business soignée, référencement local.</p>
+            <p>Quand quelqu'un cherche votre métier près de chez lui, c'est vous qu'il trouve.</p>
+          </section>
+
+          <section class="step" data-stage="4">
+            <p class="step-num">4</p>
+            <h2 class="step-title">La réception</h2>
+            <p>On fait le tour du site ensemble, comme une réception de travaux. Je corrige ce qui doit l'être, puis je le mets en ligne sur votre nom de domaine.</p>
+            <p>Le site, le domaine et le contenu vous appartiennent.</p>
+          </section>
+
+          <section class="step" data-stage="5">
+            <p class="step-num">5</p>
+            <h2 class="step-title">L'entretien</h2>
+            <p>Hébergement, mises à jour, sécurité, sauvegardes et modifications&nbsp;: je m'en occupe. Vous recevez les demandes de vos clients, vous gérez votre métier.</p>
+            <a href="#tarifs" class="text-link">Voir les tarifs</a>
+          </section>
+        </div>
       </div>
 
-      <!-- Photo -->
-      <div class="portrait" aria-hidden="true">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="fadeG" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#cfcfcf" />
-              <stop offset="0.75" stop-color="#e4e4e4" />
-              <stop offset="1" stop-color="#ffffff" />
-            </linearGradient>
-          </defs>
-          <circle cx="200" cy="140" r="78" fill="url(#fadeG)" />
-          <path d="M40 400 C50 290 110 240 200 240 C290 240 350 290 360 400 Z" fill="url(#fadeG)" />
-        </svg>
-        <span class="portrait-label">Ta photo détourée N&amp;B</span>
-      </div>
+      <!-- Le site en construction (reste fixe pendant le scroll) -->
+      <div class="build-wrap" aria-hidden="true">
+        <div class="build" data-stage="0">
+          <div class="browser">
+            <div class="bar">
+              <span class="dots"><i></i><i></i><i></i></span>
+              <span class="url"><b class="lock"></b>votre-entreprise.fr</span>
+              <span class="live">En ligne</span>
+            </div>
+            <div class="page">
+              <div class="grid"></div>
 
-      <!-- Couche du dessus : contours, cliquables -->
-      <h1 class="title title-top">
-        <a href="#realisations" class="line l1" data-line="1">Webdesigner</a>
-        <a href="#services" class="line l2" data-line="2">&amp; Développeur</a>
-      </h1>
+              <div class="w w-nav"><span class="w-logo">Dupont</span><span class="w-links"><i></i><i></i><i></i></span></div>
+              <div class="w w-hero">
+                <div class="w-hero-text">
+                  <span class="w-h">Plomberie &amp; chauffage à Melun</span>
+                  <span class="w-p"></span><span class="w-p short"></span>
+                  <span class="w-btn">Demander un devis</span>
+                </div>
+                <div class="w-img"></div>
+              </div>
+              <div class="w-cards">
+                <div class="w w-card"><b></b><i></i><i></i></div>
+                <div class="w w-card"><b></b><i></i><i></i></div>
+                <div class="w w-card"><b></b><i></i><i></i></div>
+              </div>
+
+              <span class="cote c-hero">titre + bouton d'appel</span>
+              <span class="cote c-img">photo de vos réalisations</span>
+              <span class="cote c-cards">vos 3 services</span>
+
+              <div class="serp">
+                <p class="serp-q">plombier melun</p>
+                <p class="serp-url">votre-entreprise.fr</p>
+                <p class="serp-t">Dupont — Plombier chauffagiste à Melun</p>
+                <p class="serp-d">Dépannage, salle de bain, chaudière. Devis gratuit sous 24 h.</p>
+              </div>
+
+              <div class="notif">
+                <b>Nouvelle demande de devis</b>
+                <span>« Bonjour, je voudrais un devis pour ma salle de bain. »</span>
+              </div>
+            </div>
+          </div>
+          <p class="build-label"><span class="build-step">Terrain vierge</span></p>
+        </div>
+      </div>
     </div>
 
-    <div class="hero-bottom">
-      <p class="location">en Seine-et-Marne</p>
-      <ul class="sectors">
-        <li>Artisans</li><li>Commerces</li><li>Restaurants</li><li>Indépendants</li>
+    <!-- ======== POUR QUI ======== -->
+    <section class="who">
+      <h2 class="section-title">Pour qui&nbsp;?</h2>
+      <p class="who-lead">Pour toutes les entreprises qui vivent de leur réputation locale.</p>
+      <ul class="who-list">
+        <li>Artisans du bâtiment</li>
+        <li>Commerces de proximité</li>
+        <li>Restaurants &amp; cafés</li>
+        <li>Coiffure &amp; bien-être</li>
+        <li>Indépendants &amp; professions libérales</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="hero-ctas">
-      <a href="#contact" class="btn btn-dark">Vous avez besoin d'un site</a>
-      <a href="#realisations" class="btn btn-light">Voir mes réalisations</a>
-    </div>
+    <!-- ======== RÉALISATIONS ======== -->
+    <section class="work" id="realisations">
+      <div class="work-head">
+        <h2 class="section-title">Chantiers livrés</h2>
+        <div class="work-arrows">
+          <button class="arrow" data-dir="-1" aria-label="Réalisation précédente">‹</button>
+          <button class="arrow" data-dir="1" aria-label="Réalisation suivante">›</button>
+        </div>
+      </div>
+      <div class="work-track">
+        <a class="project" href="#"><div class="project-img"><span>Capture du site</span></div><h3>Nom du client</h3><p>Artisan, Melun</p></a>
+        <a class="project" href="#"><div class="project-img"><span>Capture du site</span></div><h3>Nom du client</h3><p>Commerce, Fontainebleau</p></a>
+        <a class="project" href="#"><div class="project-img"><span>Capture du site</span></div><h3>Nom du client</h3><p>Restaurant, Provins</p></a>
+        <a class="project" href="#"><div class="project-img"><span>Capture du site</span></div><h3>Nom du client</h3><p>Indépendant, Meaux</p></a>
+      </div>
+    </section>
+
+    <!-- ======== TARIFS ======== -->
+    <section class="pricing" id="tarifs">
+      <h2 class="section-title">Tarifs</h2>
+      <div class="offers">
+        <article class="offer">
+          <h3>Création du site</h3>
+          <p class="offer-price">Sur devis</p>
+          <p class="offer-desc">Un prix fixe, annoncé avant de commencer. Pas de surprise en fin de chantier.</p>
+          <ul>
+            <li>Design sur mesure</li>
+            <li>Jusqu'à 5 pages</li>
+            <li>Adapté au téléphone</li>
+            <li>Formulaire de demande de devis</li>
+            <li>Référencement local et fiche Google</li>
+          </ul>
+          <a href="#contact" class="btn btn-blue">Demander un devis</a>
+        </article>
+        <article class="offer offer-dark">
+          <h3>Entretien</h3>
+          <p class="offer-price">100&nbsp;€<small>/mois</small></p>
+          <p class="offer-desc">Tout ce qu'il faut pour que le site reste en ligne, à jour et utile.</p>
+          <ul>
+            <li>Hébergement et nom de domaine</li>
+            <li>Mises à jour et sécurité</li>
+            <li>Sauvegardes</li>
+            <li>Modifications de textes et photos</li>
+            <li>Un interlocuteur joignable</li>
+          </ul>
+          <a href="#contact" class="btn btn-white">En parler</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======== À PROPOS ======== -->
+    <section class="about" id="apropos">
+      <div class="about-photo"><span>Votre photo</span></div>
+      <div class="about-text">
+        <h2 class="section-title">Qui construit votre site</h2>
+        <p>Je m'appelle Mathias. Avant le web, j'ai travaillé deux ans dans une petite entreprise de rénovation&nbsp;: salles de bain, cuisines, finitions.</p>
+        <p>J'en ai gardé une façon de travailler&nbsp;: comprendre le besoin avant de commencer, annoncer un prix clair, livrer un travail propre et rester joignable après.</p>
+        <p>Vous ne passez pas par une agence ni par un commercial. Vous parlez directement à la personne qui fabrique votre site.</p>
+      </div>
+    </section>
+
+    <!-- ======== FAQ ======== -->
+    <section class="faq" id="faq">
+      <h2 class="section-title">Vos questions</h2>
+      <details><summary>En combien de temps mon site sera-t-il en ligne&nbsp;?</summary><p>En général deux à quatre semaines entre notre premier appel et la mise en ligne, selon la rapidité de nos échanges.</p></details>
+      <details><summary>Je n'ai ni photos ni textes, c'est un problème&nbsp;?</summary><p>Non. Je vous aide à rédiger les textes et à choisir les visuels pour que votre site soit prêt sans prise de tête.</p></details>
+      <details><summary>Pourrai-je modifier mon site moi-même&nbsp;?</summary><p>Oui si vous le souhaitez. Sinon, avec l'entretien mensuel, vous m'envoyez vos changements et je m'en occupe.</p></details>
+      <details><summary>Je suis engagé combien de temps pour l'entretien&nbsp;?</summary><p>Le détail des conditions est précisé dans le devis. Le site, le domaine et le contenu restent à vous dans tous les cas.</p></details>
+      <details><summary>Vous travaillez seulement en Seine-et-Marne&nbsp;?</summary><p>Je suis basé en Seine-et-Marne et je me déplace volontiers dans le coin, mais je peux travailler avec vous à distance où que vous soyez.</p></details>
+    </section>
+
+    <!-- ======== CONTACT ======== -->
+    <section class="contact" id="contact">
+      <div class="contact-intro">
+        <h2 class="section-title">On démarre le chantier&nbsp;?</h2>
+        <p>Décrivez votre activité en quelques lignes. Je vous réponds sous 24 h avec un premier avis et un devis gratuit.</p>
+        <p class="contact-direct">
+          <a href="mailto:contact@tondomaine.fr">contact@tondomaine.fr</a><br />
+          <a href="tel:+33600000000">06 00 00 00 00</a>
+        </p>
+      </div>
+      <form class="form" id="contact-form" novalidate>
+        <div class="field"><label for="f-name">Nom</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
+        <div class="field"><label for="f-phone">Téléphone <em>(facultatif)</em></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" /></div>
+        <div class="field"><label for="f-activity">Votre activité</label>
+          <select id="f-activity" name="activity" required>
+            <option value="">Choisir</option><option>Artisan du bâtiment</option><option>Commerce</option><option>Restaurant / café</option><option>Coiffure / bien-être</option><option>Indépendant</option><option>Autre</option>
+          </select>
+        </div>
+        <div class="field field-full"><label for="f-message">Votre projet</label><textarea id="f-message" name="message" rows="5" required placeholder="Ex. : je suis plombier à Melun, je n'ai pas de site et je veux recevoir des demandes de devis."></textarea></div>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="field-full form-foot">
+          <button type="submit" class="btn btn-blue">Envoyer ma demande</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
   </main>
 
-  <!-- BANDEAU DE PROJETS (défile en continu) -->
-  <section class="shots" aria-label="Aperçu de projets">
-    <div class="shots-track">
-      <div class="shot"><span>Projet 1</span></div><div class="shot dark"><span>Projet 2</span></div><div class="shot accent"><span>Projet 3</span></div><div class="shot"><span>Projet 4</span></div><div class="shot dark"><span>Projet 5</span></div><div class="shot"><span>Projet 6</span></div>
-      <div class="shot"><span>Projet 1</span></div><div class="shot dark"><span>Projet 2</span></div><div class="shot accent"><span>Projet 3</span></div><div class="shot"><span>Projet 4</span></div><div class="shot dark"><span>Projet 5</span></div><div class="shot"><span>Projet 6</span></div>
-    </div>
-  </section>
-
-  <!-- INTRO : texte barré -->
-  <section class="intro" id="services">
-    <div class="intro-inner">
-      <h2 class="strike-title reveal">
-        <span class="strike">Vous avez besoin d'un site.</span>
-        <span class="strike-new">Vous avez besoin d'un site qui vous apporte des clients.</span>
-      </h2>
-      <p class="reveal">C'est cette différence qui transforme une simple visite en appel, en devis, en client.</p>
-      <p class="reveal">Je crée des <strong>sites sur mesure</strong> pour les artisans, commerces, restaurants et indépendants : un <strong>design qui vous ressemble</strong>, une <strong>visibilité locale sur Google</strong> et un <strong>suivi sans prise de tête</strong>.</p>
-    </div>
-  </section>
-
-  <!-- DERNIERS PROJETS (fond sombre, carrousel) -->
-  <section class="projects-dark" id="realisations">
-    <div class="container">
-      <h2 class="h2 light reveal">Derniers projets</h2>
-    </div>
-    <div class="slider">
-      <button class="slider-arrow prev" aria-label="Projet précédent">←</button>
-      <div class="slider-track">
-        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Artisan — création du site</p></div></a>
-        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Commerce — site vitrine</p></div></a>
-        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Restaurant — site &amp; Google</p></div></a>
-        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Indépendant — refonte</p></div></a>
-        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Artisan — site vitrine</p></div></a>
-      </div>
-      <button class="slider-arrow next" aria-label="Projet suivant">→</button>
-    </div>
-  </section>
-
-  <!-- DOUBLE BANDEAU INCLINÉ -->
-  <section class="skew" aria-hidden="true">
-    <div class="skew-row outline"><div class="skew-track"><span>Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — </span><span>Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — </span></div></div>
-    <div class="skew-row fill reverse"><div class="skew-track"><span>Webdesign — Développement — Référencement — Artisans — Commerces — Restaurants — </span><span>Webdesign — Développement — Référencement — Artisans — Commerces — Restaurants — </span></div></div>
-  </section>
-
-  <!-- BLOCS SERVICES ALTERNÉS -->
-  <section class="features container">
-    <article class="feature">
-      <div class="feature-text">
-        <p class="eyebrow reveal">Webdesign</p>
-        <h3 class="h3 reveal">Un site sur mesure,<br />rapide et facile à gérer</h3>
-        <p class="reveal">Aucun template : chaque site est dessiné pour votre métier. Rapide, lisible sur mobile, avec vos réalisations et un formulaire de contact. <strong>Un site à la hauteur de votre savoir-faire.</strong></p>
-      </div>
-      <div class="feature-visual collage reveal">
-        <div class="tile t1"></div><div class="tile t2 dark"></div><div class="tile t3"></div><div class="tile t4 accent"></div>
-      </div>
-    </article>
-    <article class="feature reverse">
-      <div class="feature-text">
-        <p class="eyebrow reveal">Référencement local</p>
-        <h3 class="h3 reveal">Être trouvé par les clients<br />près de chez vous</h3>
-        <p class="reveal">Optimisation pour Google, fiche Google Business soignée, bons mots-clés : quand quelqu'un cherche votre métier dans votre ville, <strong>c'est vous qu'il trouve.</strong></p>
-      </div>
-      <div class="feature-visual device reveal"><div class="device-screen"><span>Capture d'un site</span></div></div>
-    </article>
-    <article class="feature">
-      <div class="feature-text">
-        <p class="eyebrow reveal">Suivi &amp; entretien</p>
-        <h3 class="h3 reveal">Vous gérez votre métier,<br />je gère votre site</h3>
-        <p class="reveal">Hébergement, mises à jour, sécurité, sauvegardes et modifications : tout est inclus dans un <strong>abonnement simple à 100 € / mois</strong>, sans engagement caché.</p>
-      </div>
-      <div class="feature-visual posters reveal">
-        <div class="poster p1"></div><div class="poster p2 dark"></div><div class="poster p3"></div>
-      </div>
-    </article>
-  </section>
-
-  <!-- BANNIÈRE GRILLE D'IMAGES -->
-  <section class="banner-grid">
-    <div class="grid-bg" aria-hidden="true">
-      <div class="col"><i></i><i></i><i></i></div><div class="col down"><i></i><i></i><i></i></div><div class="col"><i></i><i></i><i></i></div><div class="col down"><i></i><i></i><i></i></div>
-    </div>
-    <div class="banner-content">
-      <p class="eyebrow reveal">Méthode</p>
-      <h2 class="h3 light reveal">Votre site en ligne en quelques semaines</h2>
-      <p class="reveal">Un appel pour comprendre votre activité, une maquette que vous validez, le développement, puis la mise en ligne. <strong>Simple, rapide, sans jargon.</strong></p>
-      <a href="#contact" class="btn btn-outline-light reveal">Démarrer mon projet</a>
-    </div>
-  </section>
-
-  <!-- AVIS -->
-  <section class="reviews container" id="apropos">
-    <div class="stack" aria-roledescription="carousel">
-      <button class="stack-arrow prev" aria-label="Avis précédent">←</button>
-      <div class="stack-cards">
-        <figure class="review"><blockquote>Emplacement pour un avis client : ce qu'il a aimé dans votre travail.</blockquote><figcaption><strong>Nom du client</strong> — Métier</figcaption></figure>
-        <figure class="review"><blockquote>Emplacement pour un deuxième avis client.</blockquote><figcaption><strong>Nom du client</strong> — Métier</figcaption></figure>
-        <figure class="review"><blockquote>Emplacement pour un troisième avis client.</blockquote><figcaption><strong>Nom du client</strong> — Métier</figcaption></figure>
-      </div>
-      <button class="stack-arrow next" aria-label="Avis suivant">→</button>
-    </div>
-    <div class="reviews-text">
-      <p class="eyebrow reveal">Ils en parlent le mieux</p>
-      <h2 class="h3 reveal">Votre satisfaction avant tout</h2>
-      <p class="reveal">Avant de créer des sites, j'ai travaillé sur les chantiers. Je sais ce que c'est de manquer de temps et de vouloir des résultats concrets. <strong>Pas d'agence, pas d'intermédiaire : vous parlez directement à la personne qui fabrique votre site.</strong></p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq container" id="faq">
-    <details class="reveal"><summary><span>En combien de temps mon site sera-t-il en ligne ?</span><i></i></summary><p>En général deux à quatre semaines entre notre premier appel et la mise en ligne, selon la rapidité de nos échanges.</p></details>
-    <details class="reveal"><summary><span>Combien coûte un site ?</span><i></i></summary><p>Chaque site est sur mesure : le prix dépend de vos besoins. Je vous envoie un devis clair et gratuit après un premier échange.</p></details>
-    <details class="reveal"><summary><span>Je n'ai ni photos ni textes, c'est un problème ?</span><i></i></summary><p>Non. Je vous aide à rédiger les textes et à choisir les visuels pour que votre site soit prêt sans prise de tête.</p></details>
-    <details class="reveal"><summary><span>Pourrai-je modifier mon site ?</span><i></i></summary><p>Oui. Avec le suivi mensuel, je fais les modifications pour vous. Vous pouvez aussi demander un accès pour modifier vous-même les textes.</p></details>
-    <details class="reveal"><summary><span>Le site m'appartient-il ?</span><i></i></summary><p>Oui, le nom de domaine et le contenu sont à vous.</p></details>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner">
-    <div class="cta-content">
-      <h2 class="h3 light reveal">Prenons rendez-vous !</h2>
-      <p class="reveal">Un appel gratuit de 15 minutes pour parler de votre projet, de vos besoins et de la meilleure façon d'y répondre.</p>
-      <div class="cta-buttons reveal">
-        <a href="tel:+33600000000" class="btn btn-light">Réserver un appel gratuit</a>
-        <a href="#contact" class="btn btn-outline-light">Démarrer un projet</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact container" id="contact">
-    <div class="contact-intro">
-      <p class="eyebrow reveal">Contact</p>
-      <h2 class="h3 reveal">Parlez-moi de votre projet</h2>
-      <p class="reveal">Quelques lignes suffisent. Réponse sous 24 h, devis gratuit.</p>
-      <p class="contact-direct reveal"><a href="mailto:contact@tondomaine.fr">contact@tondomaine.fr</a><br /><a href="tel:+33600000000">06 00 00 00 00</a></p>
-    </div>
-    <form class="form reveal" id="contact-form" novalidate>
-      <div class="field"><label for="f-name">Nom *</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
-      <div class="field"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
-      <div class="field"><label for="f-phone">Téléphone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" /></div>
-      <div class="field"><label for="f-activity">Activité *</label>
-        <select id="f-activity" name="activity" required>
-          <option value="">Choisir…</option><option>Artisan</option><option>Commerce</option><option>Restaurant</option><option>Indépendant</option><option>Autre</option>
-        </select>
-      </div>
-      <div class="field field-full"><label for="f-message">Votre projet *</label><textarea id="f-message" name="message" rows="5" required></textarea></div>
-      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-      <div class="field-full form-foot">
-        <button type="submit" class="btn btn-dark">Envoyer la demande</button>
-        <p class="form-status" role="status" aria-live="polite"></p>
-      </div>
-    </form>
-  </section>
-
-  <!-- FOOTER -->
   <footer class="footer">
-    <p>© <span id="year">2026</span> Mathias — Site fait à la main 👋</p>
+    <a href="#top" class="logo">Mathias<span class="dot">.</span></a>
+    <p>Sites web sur mesure en Seine-et-Marne</p>
     <nav class="footer-links">
-      <a href="#realisations">Réalisations</a><a href="#services">Services</a><a href="#contact">Contact</a><a href="mentions-legales.html">Mentions légales</a>
+      <a href="#">Instagram</a><a href="#">LinkedIn</a><a href="mentions-legales.html">Mentions légales</a>
     </nav>
+    <p class="footer-copy">© <span id="year">2026</span> Mathias</p>
   </footer>
 
-  <!-- Curseur personnalisé -->
-  <div class="cursor" aria-hidden="true">
-    <svg viewBox="0 0 24 24" width="22" height="22"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </div>
-
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
