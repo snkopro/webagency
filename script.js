@@ -67,14 +67,37 @@ const revealObserver = new IntersectionObserver(
 );
 document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
 
-// Filtres des réalisations
-const filters = document.querySelectorAll('.filter');
-const projects = document.querySelectorAll('.project');
-filters.forEach((btn) =>
+// Carrousel "Derniers projets"
+const track = document.querySelector('.slider-track');
+document.querySelectorAll('.slider-arrow').forEach((btn) =>
   btn.addEventListener('click', () => {
-    filters.forEach((b) => b.classList.toggle('is-active', b === btn));
-    const f = btn.dataset.filter;
-    projects.forEach((p) => p.classList.toggle('is-hidden', f !== 'all' && p.dataset.cat !== f));
+    const card = track.querySelector('.pcard');
+    const step = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap || 64);
+    track.scrollBy({ left: btn.classList.contains('next') ? step : -step, behavior: 'smooth' });
+  })
+);
+
+// Avis empilés
+const reviews = [...document.querySelectorAll('.review')];
+let ri = 0;
+function renderReviews() {
+  const n = reviews.length;
+  reviews.forEach((r, i) => {
+    r.classList.toggle('is-current', i === ri);
+    r.classList.toggle('is-prev', n > 2 && i === (ri - 1 + n) % n);
+    r.classList.toggle('is-next', n > 1 && i === (ri + 1) % n);
+  });
+}
+if (reviews.length) {
+  renderReviews();
+  document.querySelector('.stack-arrow.next').addEventListener('click', () => { ri = (ri + 1) % reviews.length; renderReviews(); });
+  document.querySelector('.stack-arrow.prev').addEventListener('click', () => { ri = (ri - 1 + reviews.length) % reviews.length; renderReviews(); });
+}
+
+// FAQ : une seule question ouverte à la fois
+document.querySelectorAll('.faq details').forEach((d) =>
+  d.addEventListener('toggle', () => {
+    if (d.open) document.querySelectorAll('.faq details').forEach((o) => { if (o !== d) o.open = false; });
   })
 );
 

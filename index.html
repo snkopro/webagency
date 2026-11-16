@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,8 @@
   <meta property="og:title" content="Mathias — Création de sites web sur mesure" />
   <meta property="og:description" content="Sites web sur mesure pour artisans, commerçants et indépendants en Seine-et-Marne." />
   <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <script>document.documentElement.classList.replace("no-js","js")</script>
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
 
@@ -88,125 +89,141 @@
     </div>
   </main>
 
-  <!-- BANDEAU MÉTIERS -->
-  <section class="marquee" aria-label="Secteurs accompagnés">
-    <div class="marquee-track">
-      <span>Artisans</span><span class="o">Commerces</span><span>Restaurants</span><span class="o">Indépendants</span><span>Plombiers</span><span class="o">Coiffeurs</span><span>Paysagistes</span><span class="o">Coachs</span>
-      <span>Artisans</span><span class="o">Commerces</span><span>Restaurants</span><span class="o">Indépendants</span><span>Plombiers</span><span class="o">Coiffeurs</span><span>Paysagistes</span><span class="o">Coachs</span>
+  <!-- BANDEAU DE PROJETS (défile en continu) -->
+  <section class="shots" aria-label="Aperçu de projets">
+    <div class="shots-track">
+      <div class="shot"><span>Projet 1</span></div><div class="shot dark"><span>Projet 2</span></div><div class="shot accent"><span>Projet 3</span></div><div class="shot"><span>Projet 4</span></div><div class="shot dark"><span>Projet 5</span></div><div class="shot"><span>Projet 6</span></div>
+      <div class="shot"><span>Projet 1</span></div><div class="shot dark"><span>Projet 2</span></div><div class="shot accent"><span>Projet 3</span></div><div class="shot"><span>Projet 4</span></div><div class="shot dark"><span>Projet 5</span></div><div class="shot"><span>Projet 6</span></div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="section-head">
-      <h2 class="h2 reveal">Services</h2>
-      <p class="lead reveal">Un site pensé pour une chose : que vos futurs clients vous trouvent et vous contactent.</p>
-    </div>
-    <div class="services">
-      <article class="service reveal">
-        <span class="num">01</span>
-        <h3>Site vitrine sur mesure</h3>
-        <p>Un design unique, adapté à votre métier. Rapide, lisible sur mobile, avec vos réalisations et un formulaire de contact.</p>
-        <ul><li>Design 100 % personnalisé</li><li>Jusqu'à 5 pages</li><li>Formulaire de contact</li></ul>
-        <p class="price">Sur devis</p>
-      </article>
-      <article class="service reveal">
-        <span class="num">02</span>
-        <h3>Visibilité Google</h3>
-        <p>Référencement local et fiche Google Business optimisée pour apparaître quand on cherche votre métier près de chez vous.</p>
-        <ul><li>Référencement local</li><li>Fiche Google Business</li><li>Suivi des positions</li></ul>
-        <p class="price">Inclus dans chaque site</p>
-      </article>
-      <article class="service reveal">
-        <span class="num">03</span>
-        <h3>Suivi &amp; entretien</h3>
-        <p>Hébergement, mises à jour, sécurité et petites modifications. Vous vous occupez de votre métier, je m'occupe du site.</p>
-        <ul><li>Hébergement &amp; nom de domaine</li><li>Modifications illimitées</li><li>Sauvegardes &amp; sécurité</li></ul>
-        <p class="price">100 € / mois</p>
-      </article>
+  <!-- INTRO : texte barré -->
+  <section class="intro" id="services">
+    <div class="intro-inner">
+      <h2 class="strike-title reveal">
+        <span class="strike">Vous avez besoin d'un site.</span>
+        <span class="strike-new">Vous avez besoin d'un site qui vous apporte des clients.</span>
+      </h2>
+      <p class="reveal">C'est cette différence qui transforme une simple visite en appel, en devis, en client.</p>
+      <p class="reveal">Je crée des <strong>sites sur mesure</strong> pour les artisans, commerces, restaurants et indépendants : un <strong>design qui vous ressemble</strong>, une <strong>visibilité locale sur Google</strong> et un <strong>suivi sans prise de tête</strong>.</p>
     </div>
   </section>
 
-  <!-- RÉALISATIONS -->
-  <section class="section" id="realisations">
-    <div class="section-head">
-      <h2 class="h2 reveal">Réalisations</h2>
-      <div class="filters reveal" role="tablist" aria-label="Filtrer par secteur">
-        <button class="filter is-active" data-filter="all">Tous</button>
-        <button class="filter" data-filter="artisan">Artisans</button>
-        <button class="filter" data-filter="commerce">Commerces</button>
-        <button class="filter" data-filter="restaurant">Restaurants</button>
-        <button class="filter" data-filter="independant">Indépendants</button>
+  <!-- DERNIERS PROJETS (fond sombre, carrousel) -->
+  <section class="projects-dark" id="realisations">
+    <div class="container">
+      <h2 class="h2 light reveal">Derniers projets</h2>
+    </div>
+    <div class="slider">
+      <button class="slider-arrow prev" aria-label="Projet précédent">←</button>
+      <div class="slider-track">
+        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Artisan — création du site</p></div></a>
+        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Commerce — site vitrine</p></div></a>
+        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Restaurant — site &amp; Google</p></div></a>
+        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Indépendant — refonte</p></div></a>
+        <a class="pcard" href="#"><div class="pcard-img"></div><div class="pcard-info"><h3>Nom du projet</h3><p>Artisan — site vitrine</p></div></a>
       </div>
-    </div>
-    <div class="projects">
-      <a class="project reveal" data-cat="artisan" href="#">
-        <div class="project-img"><span>Capture du site</span></div>
-        <div class="project-info"><h3>Nom du client</h3><span>Artisan</span></div>
-      </a>
-      <a class="project reveal" data-cat="commerce" href="#">
-        <div class="project-img"><span>Capture du site</span></div>
-        <div class="project-info"><h3>Nom du client</h3><span>Commerce</span></div>
-      </a>
-      <a class="project reveal" data-cat="restaurant" href="#">
-        <div class="project-img"><span>Capture du site</span></div>
-        <div class="project-info"><h3>Nom du client</h3><span>Restaurant</span></div>
-      </a>
-      <a class="project reveal" data-cat="independant" href="#">
-        <div class="project-img"><span>Capture du site</span></div>
-        <div class="project-info"><h3>Nom du client</h3><span>Indépendant</span></div>
-      </a>
+      <button class="slider-arrow next" aria-label="Projet suivant">→</button>
     </div>
   </section>
 
-  <!-- MÉTHODE -->
-  <section class="section" id="methode">
-    <div class="section-head">
-      <h2 class="h2 reveal">Méthode</h2>
-      <p class="lead reveal">Simple, rapide, sans jargon. Vous savez toujours où on en est.</p>
-    </div>
-    <ol class="steps">
-      <li class="reveal"><span class="step-num">1</span><div><h3>On échange</h3><p>Un appel de 20 minutes pour comprendre votre activité, vos clients et vos objectifs.</p></div></li>
-      <li class="reveal"><span class="step-num">2</span><div><h3>Je conçois</h3><p>Une maquette sur mesure que vous validez avant que je commence à développer.</p></div></li>
-      <li class="reveal"><span class="step-num">3</span><div><h3>Je développe</h3><p>Un site rapide, adapté au mobile et prêt pour Google.</p></div></li>
-      <li class="reveal"><span class="step-num">4</span><div><h3>On lance</h3><p>Mise en ligne, puis suivi pour que votre site reste à jour et continue de vous apporter des clients.</p></div></li>
-    </ol>
+  <!-- DOUBLE BANDEAU INCLINÉ -->
+  <section class="skew" aria-hidden="true">
+    <div class="skew-row outline"><div class="skew-track"><span>Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — </span><span>Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — Montrez ce que vous savez faire ! — </span></div></div>
+    <div class="skew-row fill reverse"><div class="skew-track"><span>Webdesign — Développement — Référencement — Artisans — Commerces — Restaurants — </span><span>Webdesign — Développement — Référencement — Artisans — Commerces — Restaurants — </span></div></div>
   </section>
 
-  <!-- À PROPOS -->
-  <section class="section about" id="apropos">
-    <div class="about-photo reveal"><span>Ta photo</span></div>
-    <div class="about-text">
-      <h2 class="h2 reveal">À propos</h2>
-      <p class="reveal">Avant de créer des sites, j'ai travaillé sur les chantiers. Je sais ce que c'est de manquer de temps et de vouloir des résultats concrets.</p>
-      <p class="reveal">Pas d'agence, pas d'intermédiaire : vous parlez directement à la personne qui conçoit et développe votre site. Je travaille avec les artisans, commerçants, restaurants et indépendants de Seine-et-Marne et d'ailleurs.</p>
-      <a href="#contact" class="btn btn-dark reveal">Parlons de votre projet</a>
+  <!-- BLOCS SERVICES ALTERNÉS -->
+  <section class="features container">
+    <article class="feature">
+      <div class="feature-text">
+        <p class="eyebrow reveal">Webdesign</p>
+        <h3 class="h3 reveal">Un site sur mesure,<br />rapide et facile à gérer</h3>
+        <p class="reveal">Aucun template : chaque site est dessiné pour votre métier. Rapide, lisible sur mobile, avec vos réalisations et un formulaire de contact. <strong>Un site à la hauteur de votre savoir-faire.</strong></p>
+      </div>
+      <div class="feature-visual collage reveal">
+        <div class="tile t1"></div><div class="tile t2 dark"></div><div class="tile t3"></div><div class="tile t4 accent"></div>
+      </div>
+    </article>
+    <article class="feature reverse">
+      <div class="feature-text">
+        <p class="eyebrow reveal">Référencement local</p>
+        <h3 class="h3 reveal">Être trouvé par les clients<br />près de chez vous</h3>
+        <p class="reveal">Optimisation pour Google, fiche Google Business soignée, bons mots-clés : quand quelqu'un cherche votre métier dans votre ville, <strong>c'est vous qu'il trouve.</strong></p>
+      </div>
+      <div class="feature-visual device reveal"><div class="device-screen"><span>Capture d'un site</span></div></div>
+    </article>
+    <article class="feature">
+      <div class="feature-text">
+        <p class="eyebrow reveal">Suivi &amp; entretien</p>
+        <h3 class="h3 reveal">Vous gérez votre métier,<br />je gère votre site</h3>
+        <p class="reveal">Hébergement, mises à jour, sécurité, sauvegardes et modifications : tout est inclus dans un <strong>abonnement simple à 100 € / mois</strong>, sans engagement caché.</p>
+      </div>
+      <div class="feature-visual posters reveal">
+        <div class="poster p1"></div><div class="poster p2 dark"></div><div class="poster p3"></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- BANNIÈRE GRILLE D'IMAGES -->
+  <section class="banner-grid">
+    <div class="grid-bg" aria-hidden="true">
+      <div class="col"><i></i><i></i><i></i></div><div class="col down"><i></i><i></i><i></i></div><div class="col"><i></i><i></i><i></i></div><div class="col down"><i></i><i></i><i></i></div>
+    </div>
+    <div class="banner-content">
+      <p class="eyebrow reveal">Méthode</p>
+      <h2 class="h3 light reveal">Votre site en ligne en quelques semaines</h2>
+      <p class="reveal">Un appel pour comprendre votre activité, une maquette que vous validez, le développement, puis la mise en ligne. <strong>Simple, rapide, sans jargon.</strong></p>
+      <a href="#contact" class="btn btn-outline-light reveal">Démarrer mon projet</a>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="reviews container" id="apropos">
+    <div class="stack" aria-roledescription="carousel">
+      <button class="stack-arrow prev" aria-label="Avis précédent">←</button>
+      <div class="stack-cards">
+        <figure class="review"><blockquote>Emplacement pour un avis client : ce qu'il a aimé dans votre travail.</blockquote><figcaption><strong>Nom du client</strong> — Métier</figcaption></figure>
+        <figure class="review"><blockquote>Emplacement pour un deuxième avis client.</blockquote><figcaption><strong>Nom du client</strong> — Métier</figcaption></figure>
+        <figure class="review"><blockquote>Emplacement pour un troisième avis client.</blockquote><figcaption><strong>Nom du client</strong> — Métier</figcaption></figure>
+      </div>
+      <button class="stack-arrow next" aria-label="Avis suivant">→</button>
+    </div>
+    <div class="reviews-text">
+      <p class="eyebrow reveal">Ils en parlent le mieux</p>
+      <h2 class="h3 reveal">Votre satisfaction avant tout</h2>
+      <p class="reveal">Avant de créer des sites, j'ai travaillé sur les chantiers. Je sais ce que c'est de manquer de temps et de vouloir des résultats concrets. <strong>Pas d'agence, pas d'intermédiaire : vous parlez directement à la personne qui fabrique votre site.</strong></p>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="section-head">
-      <h2 class="h2 reveal">Questions</h2>
-    </div>
-    <div class="faq">
-      <details class="reveal"><summary>Combien coûte un site ?</summary><p>Chaque site est sur mesure, donc le prix dépend de vos besoins. Je vous envoie un devis clair et gratuit après un premier échange.</p></details>
-      <details class="reveal"><summary>Combien de temps pour avoir mon site ?</summary><p>En général deux à quatre semaines entre notre premier appel et la mise en ligne, selon la rapidité des échanges.</p></details>
-      <details class="reveal"><summary>Est-ce que je pourrai modifier mon site ?</summary><p>Oui. Avec le suivi mensuel, je fais les modifications pour vous. Vous pouvez aussi demander un accès pour modifier vous-même les textes.</p></details>
-      <details class="reveal"><summary>Je n'ai ni photos ni textes, c'est un problème ?</summary><p>Non. Je vous aide à rédiger les textes et à choisir les visuels pour que votre site soit prêt sans prise de tête.</p></details>
-      <details class="reveal"><summary>Le site m'appartient-il ?</summary><p>Oui, le nom de domaine et le contenu sont à vous.</p></details>
+  <section class="faq container" id="faq">
+    <details class="reveal"><summary><span>En combien de temps mon site sera-t-il en ligne ?</span><i></i></summary><p>En général deux à quatre semaines entre notre premier appel et la mise en ligne, selon la rapidité de nos échanges.</p></details>
+    <details class="reveal"><summary><span>Combien coûte un site ?</span><i></i></summary><p>Chaque site est sur mesure : le prix dépend de vos besoins. Je vous envoie un devis clair et gratuit après un premier échange.</p></details>
+    <details class="reveal"><summary><span>Je n'ai ni photos ni textes, c'est un problème ?</span><i></i></summary><p>Non. Je vous aide à rédiger les textes et à choisir les visuels pour que votre site soit prêt sans prise de tête.</p></details>
+    <details class="reveal"><summary><span>Pourrai-je modifier mon site ?</span><i></i></summary><p>Oui. Avec le suivi mensuel, je fais les modifications pour vous. Vous pouvez aussi demander un accès pour modifier vous-même les textes.</p></details>
+    <details class="reveal"><summary><span>Le site m'appartient-il ?</span><i></i></summary><p>Oui, le nom de domaine et le contenu sont à vous.</p></details>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-content">
+      <h2 class="h3 light reveal">Prenons rendez-vous !</h2>
+      <p class="reveal">Un appel gratuit de 15 minutes pour parler de votre projet, de vos besoins et de la meilleure façon d'y répondre.</p>
+      <div class="cta-buttons reveal">
+        <a href="tel:+33600000000" class="btn btn-light">Réserver un appel gratuit</a>
+        <a href="#contact" class="btn btn-outline-light">Démarrer un projet</a>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="section contact" id="contact">
+  <section class="contact container" id="contact">
     <div class="contact-intro">
-      <h2 class="h2 reveal">Un projet&nbsp;?</h2>
-      <p class="lead reveal">Décrivez-moi votre activité en quelques lignes. Réponse sous 24 h, devis gratuit.</p>
-      <p class="contact-direct reveal">
-        <a href="mailto:contact@tondomaine.fr">contact@tondomaine.fr</a><br />
-        <a href="tel:+33600000000">06 00 00 00 00</a>
-      </p>
+      <p class="eyebrow reveal">Contact</p>
+      <h2 class="h3 reveal">Parlez-moi de votre projet</h2>
+      <p class="reveal">Quelques lignes suffisent. Réponse sous 24 h, devis gratuit.</p>
+      <p class="contact-direct reveal"><a href="mailto:contact@tondomaine.fr">contact@tondomaine.fr</a><br /><a href="tel:+33600000000">06 00 00 00 00</a></p>
     </div>
     <form class="form reveal" id="contact-form" novalidate>
       <div class="field"><label for="f-name">Nom *</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
@@ -228,18 +245,10 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-top">
-      <a href="#" class="logo">Mathias<span class="dot">.</span></a>
-      <nav class="footer-nav">
-        <a href="#realisations">Réalisations</a><a href="#services">Services</a><a href="#apropos">À propos</a><a href="#contact">Contact</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <p>© <span id="year">2026</span> Mathias — Création de sites web, Seine-et-Marne</p>
-      <div class="footer-links">
-        <a href="#">Instagram</a><a href="#">LinkedIn</a><a href="mentions-legales.html">Mentions légales</a>
-      </div>
-    </div>
+    <p>© <span id="year">2026</span> Mathias — Site fait à la main 👋</p>
+    <nav class="footer-links">
+      <a href="#realisations">Réalisations</a><a href="#services">Services</a><a href="#contact">Contact</a><a href="mentions-legales.html">Mentions légales</a>
+    </nav>
   </footer>
 
   <!-- Curseur personnalisé -->
@@ -247,6 +256,6 @@
     <svg viewBox="0 0 24 24" width="22" height="22"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
