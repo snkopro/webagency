@@ -3,265 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mathias — Sites web sur mesure en Seine-et-Marne</title>
-  <meta name="description" content="Sites web sur mesure pour artisans, commerces, restaurants et indépendants. Construits comme une maison : un plan solide, du sur-mesure, des finitions propres." />
+  <title>Mathias — Création de sites web sur mesure en Seine-et-Marne</title>
+  <meta name="description" content="Sites web sur mesure pour artisans, commerces, restaurants et indépendants en Seine-et-Marne. Devis gratuit, réponse sous 24 h." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://snkopro.github.io/webagency/" />
   <meta property="og:title" content="Mathias — Sites web sur mesure" />
-  <meta property="og:description" content="Un site web, ça se construit comme une maison." />
+  <meta property="og:description" content="Des sites qui rapportent des clients, pour les entreprises de Seine-et-Marne." />
   <meta property="og:type" content="website" />
-  <link rel="preload" href="fonts/big-shoulders-display-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/rethink-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
   <script>document.documentElement.classList.replace("no-js", "js")</script>
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
 
-  <header class="header">
-    <a href="#top" class="logo">Mathias<span class="dot">.</span></a>
+  <!-- Barre de navigation flottante -->
+  <header class="nav-wrap">
     <nav class="nav" aria-label="Navigation principale">
-      <a href="#chantier">Ma méthode</a>
-      <a href="#realisations">Réalisations</a>
-      <a href="#tarifs">Tarifs</a>
-      <a href="#apropos">À propos</a>
+      <a href="#top" class="logo" aria-label="Accueil">M<span>.</span></a>
+      <div class="nav-links">
+        <a href="#realisations">Réalisations</a>
+        <a href="#methode">Méthode</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#faq">Questions</a>
+      </div>
+      <a href="#contact" class="pill pill-dark nav-cta">Planifier un appel <span class="arr">↗</span></a>
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
     </nav>
-    <a href="#contact" class="btn btn-blue">Demander un devis</a>
-    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
   </header>
 
   <div class="mobile-menu">
-    <a href="#chantier">Ma méthode</a>
     <a href="#realisations">Réalisations</a>
+    <a href="#methode">Méthode</a>
     <a href="#tarifs">Tarifs</a>
-    <a href="#apropos">À propos</a>
-    <a href="#contact" class="btn btn-blue">Demander un devis</a>
+    <a href="#faq">Questions</a>
+    <a href="#contact" class="pill pill-dark">Planifier un appel <span class="arr">↗</span></a>
   </div>
 
   <main id="top">
 
-    <!-- ======== HERO + CHANTIER : le site se construit pendant qu'on descend ======== -->
-    <div class="story">
-
-      <div class="story-text">
-        <section class="hero" data-stage="0">
-          <p class="hero-kicker">Création de sites web en Seine-et-Marne</p>
-          <h1 class="hero-title">Un site web, ça se construit comme une maison.</h1>
-          <p class="hero-lead">J'ai passé deux ans sur les chantiers avant de créer des sites. Je construis le vôtre de la même façon&nbsp;: un plan solide, du sur-mesure et des finitions propres.</p>
-          <div class="hero-ctas">
-            <a href="#contact" class="btn btn-blue">Demander un devis gratuit</a>
-            <a href="#chantier" class="btn btn-line">Voir comment je travaille</a>
-          </div>
-          <p class="scroll-hint" aria-hidden="true"><span></span>Descendez, le chantier commence</p>
-        </section>
-
-        <div id="chantier" class="steps">
-          <section class="step" data-stage="1">
-            <p class="step-num">1</p>
-            <h2 class="step-title">Le plan</h2>
-            <p>On s'appelle vingt minutes. Vous me parlez de votre métier, de vos clients, de ce que vous voulez qu'ils fassent en arrivant sur le site&nbsp;: appeler, demander un devis, réserver.</p>
-            <p>Je dessine ensuite la structure de chaque page. Rien n'est construit tant que le plan ne vous convient pas.</p>
-          </section>
-
-          <section class="step" data-stage="2">
-            <p class="step-num">2</p>
-            <h2 class="step-title">Le gros œuvre</h2>
-            <p>Je crée un design à votre image&nbsp;: vos couleurs, vos photos, vos réalisations. Pas de modèle tout fait, chaque site est dessiné pour l'entreprise qui le porte.</p>
-            <p>Vous validez la maquette avant que je passe au développement.</p>
-          </section>
-
-          <section class="step" data-stage="3">
-            <p class="step-num">3</p>
-            <h2 class="step-title">Les finitions</h2>
-            <p>Le site est rapide, lisible sur téléphone et préparé pour Google&nbsp;: bons mots-clés, fiche Google Business soignée, référencement local.</p>
-            <p>Quand quelqu'un cherche votre métier près de chez lui, c'est vous qu'il trouve.</p>
-          </section>
-
-          <section class="step" data-stage="4">
-            <p class="step-num">4</p>
-            <h2 class="step-title">La réception</h2>
-            <p>On fait le tour du site ensemble, comme une réception de travaux. Je corrige ce qui doit l'être, puis je le mets en ligne sur votre nom de domaine.</p>
-            <p>Le site, le domaine et le contenu vous appartiennent.</p>
-          </section>
-
-          <section class="step" data-stage="5">
-            <p class="step-num">5</p>
-            <h2 class="step-title">L'entretien</h2>
-            <p>Hébergement, mises à jour, sécurité, sauvegardes et modifications&nbsp;: je m'en occupe. Vous recevez les demandes de vos clients, vous gérez votre métier.</p>
-            <a href="#tarifs" class="text-link">Voir les tarifs</a>
-          </section>
-        </div>
+    <!-- ===== HERO ===== -->
+    <section class="hero container">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Des sites qui<br />
+          <span class="rotator" aria-live="polite">
+            <span class="rot-word is-active">rapportent.</span>
+            <span class="rot-word">rassurent.</span>
+            <span class="rot-word">vous ressemblent.</span>
+          </span>
+        </h1>
+        <p class="hero-lead">Je conçois des sites internet sur mesure pour les artisans, commerces et indépendants de Seine-et-Marne.</p>
       </div>
-
-      <!-- Le site en construction (reste fixe pendant le scroll) -->
-      <div class="build-wrap" aria-hidden="true">
-        <div class="build" data-stage="0">
-          <div class="browser">
-            <div class="bar">
-              <span class="dots"><i></i><i></i><i></i></span>
-              <span class="url"><b class="lock"></b>votre-entreprise.fr</span>
-              <span class="live">En ligne</span>
-            </div>
-            <div class="page">
-              <div class="grid"></div>
-
-              <div class="w w-nav"><span class="w-logo">Dupont</span><span class="w-links"><i></i><i></i><i></i></span></div>
-              <div class="w w-hero">
-                <div class="w-hero-text">
-                  <span class="w-h">Plomberie &amp; chauffage à Melun</span>
-                  <span class="w-p"></span><span class="w-p short"></span>
-                  <span class="w-btn">Demander un devis</span>
-                </div>
-                <div class="w-img"></div>
-              </div>
-              <div class="w-cards">
-                <div class="w w-card"><b></b><i></i><i></i></div>
-                <div class="w w-card"><b></b><i></i><i></i></div>
-                <div class="w w-card"><b></b><i></i><i></i></div>
-              </div>
-
-              <span class="cote c-hero">titre + bouton d'appel</span>
-              <span class="cote c-img">photo de vos réalisations</span>
-              <span class="cote c-cards">vos 3 services</span>
-
-              <div class="serp">
-                <p class="serp-q">plombier melun</p>
-                <p class="serp-url">votre-entreprise.fr</p>
-                <p class="serp-t">Dupont — Plombier chauffagiste à Melun</p>
-                <p class="serp-d">Dépannage, salle de bain, chaudière. Devis gratuit sous 24 h.</p>
-              </div>
-
-              <div class="notif">
-                <b>Nouvelle demande de devis</b>
-                <span>« Bonjour, je voudrais un devis pour ma salle de bain. »</span>
-              </div>
-            </div>
-          </div>
-          <p class="build-label"><span class="build-step">Terrain vierge</span></p>
+      <aside class="hero-card">
+        <a href="#contact" class="pill pill-white">Planifier un appel <span class="arr">↗</span></a>
+        <a href="#contact" class="pill pill-ghost">Demander un devis gratuit</a>
+        <div class="hero-stats">
+          <div><strong>24 h</strong><span>pour vous répondre</span></div>
+          <div><strong>2 à 4 sem.</strong><span>pour être en ligne</span></div>
         </div>
-      </div>
-    </div>
+      </aside>
+    </section>
 
-    <!-- ======== POUR QUI ======== -->
-    <section class="who">
-      <h2 class="section-title">Pour qui&nbsp;?</h2>
-      <p class="who-lead">Pour toutes les entreprises qui vivent de leur réputation locale.</p>
-      <ul class="who-list">
-        <li>Artisans du bâtiment</li>
-        <li>Commerces de proximité</li>
-        <li>Restaurants &amp; cafés</li>
-        <li>Coiffure &amp; bien-être</li>
-        <li>Indépendants &amp; professions libérales</li>
+    <!-- ===== PANNEAU : texte qui se révèle au scroll ===== -->
+    <section class="panel-wrap container">
+      <div class="panel">
+        <div class="blob b1"></div><div class="blob b2"></div>
+        <p class="reveal-text" aria-label="Un site pensé pour vos clients, construit pour votre métier.">
+          <span>Un</span> <span>site</span> <span>pensé</span> <span>pour</span> <span>vos</span> <span>clients,</span><br />
+          <span>construit</span> <span>pour</span> <span>votre</span> <span>métier.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== POUR QUI ===== -->
+    <section class="who container">
+      <h2 class="kicker">Des sites pour tous les métiers de proximité.</h2>
+      <ul class="trades">
+        <li>Plombiers</li><li>Électriciens</li><li>Menuisiers</li><li>Peintres</li><li>Maçons</li><li>Carreleurs</li>
+        <li>Boulangeries</li><li>Restaurants</li><li>Cafés</li><li>Coiffeurs</li><li>Esthéticiennes</li><li>Fleuristes</li>
+        <li>Paysagistes</li><li>Garages</li><li>Commerces</li><li>Coachs</li><li>Consultants</li><li>Artisans</li>
       </ul>
     </section>
 
-    <!-- ======== RÉALISATIONS ======== -->
+    <!-- ===== RÉALISATIONS ===== -->
     <section class="work" id="realisations">
-      <div class="work-head">
-        <h2 class="section-title">Chantiers livrés</h2>
-        <div class="work-arrows">
-          <button class="arrow" data-dir="-1" aria-label="Réalisation précédente">‹</button>
-          <button class="arrow" data-dir="1" aria-label="Réalisation suivante">›</button>
+      <p class="giant" aria-hidden="true">Projets</p>
+      <div class="container">
+        <h2 class="sr-only">Réalisations</h2>
+        <div class="bento">
+          <a href="#" class="tile t-wide"><div class="tile-img"><span>Capture du projet</span></div><div class="tile-cap"><strong>Nom du client</strong><span>Artisan, Melun</span></div></a>
+          <a href="#" class="tile t-dark"><div class="tile-img"><span>Capture mobile</span></div><div class="tile-cap"><strong>Nom du client</strong><span>Restaurant, Provins</span></div></a>
+          <a href="#" class="tile"><div class="tile-img"><span>Capture du projet</span></div><div class="tile-cap"><strong>Nom du client</strong><span>Commerce, Fontainebleau</span></div></a>
+          <a href="#" class="tile t-wide"><div class="tile-img"><span>Capture du projet</span></div><div class="tile-cap"><strong>Nom du client</strong><span>Indépendant, Meaux</span></div></a>
         </div>
-      </div>
-      <div class="work-track">
-        <a class="project" href="#"><div class="project-img"><span>Capture du site</span></div><h3>Nom du client</h3><p>Artisan, Melun</p></a>
-        <a class="project" href="#"><div class="project-img"><span>Capture du site</span></div><h3>Nom du client</h3><p>Commerce, Fontainebleau</p></a>
-        <a class="project" href="#"><div class="project-img"><span>Capture du site</span></div><h3>Nom du client</h3><p>Restaurant, Provins</p></a>
-        <a class="project" href="#"><div class="project-img"><span>Capture du site</span></div><h3>Nom du client</h3><p>Indépendant, Meaux</p></a>
+        <div class="center"><a href="#contact" class="pill pill-dark">Lancer votre projet <span class="arr">↗</span></a></div>
       </div>
     </section>
 
-    <!-- ======== TARIFS ======== -->
-    <section class="pricing" id="tarifs">
-      <h2 class="section-title">Tarifs</h2>
+    <!-- ===== VILLES ===== -->
+    <section class="cities">
+      <div class="cities-inner">
+        <p class="cities-lead">Vos clients vous trouvent à</p>
+        <div class="cities-list" aria-label="Melun, Fontainebleau, Provins, Meaux, Nemours, Chelles">
+          <span>Melun</span><span>Fontainebleau</span><span>Provins</span><span>Meaux</span><span>Nemours</span><span>Chelles</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MÉTHODE : 3 cartes ===== -->
+    <section class="method container" id="methode">
+      <h2 class="kicker">Comment je travaille avec vous</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="card-visual v-chat">
+            <div class="mock">
+              <div class="mock-head"><span class="av">M</span><div><b>Mathias</b><small>répond en général dans la journée</small></div></div>
+              <div class="msg in">Bonjour, vous pouvez changer la photo de la page d'accueil&nbsp;?</div>
+              <div class="msg out">C'est fait, la nouvelle est en ligne.</div>
+              <div class="msg in">Parfait, merci&nbsp;!</div>
+            </div>
+          </div>
+          <p><strong>Un seul interlocuteur.</strong> Vous parlez directement à la personne qui fabrique votre site, sans agence ni commercial.</p>
+        </article>
+        <article class="card">
+          <div class="card-visual v-search">
+            <div class="mock">
+              <div class="search">plombier melun</div>
+              <div class="result first"><span class="rank">1</span><div><b>Votre entreprise</b><small>Dépannage, salle de bain, chauffage…</small></div></div>
+              <div class="result"><span class="rank">2</span><div><b>Concurrent</b><small>…</small></div></div>
+              <div class="result"><span class="rank">3</span><div><b>Concurrent</b><small>…</small></div></div>
+            </div>
+          </div>
+          <p><strong>Trouvé en premier.</strong> Référencement local et fiche Google Business soignée pour sortir quand on cherche votre métier.</p>
+        </article>
+        <article class="card">
+          <div class="card-visual v-brief">
+            <div class="mock">
+              <b class="brief-title">Votre projet</b>
+              <dl>
+                <div><dt>Activité</dt><dd>Plomberie</dd></div>
+                <div><dt>Objectif</dt><dd>Recevoir des devis</dd></div>
+                <div><dt>Pages</dt><dd>4</dd></div>
+                <div><dt>En ligne</dt><dd>Sous 3 semaines</dd></div>
+              </dl>
+            </div>
+          </div>
+          <p><strong>Cadré en un appel.</strong> Vingt minutes pour comprendre votre activité, puis une maquette que vous validez avant le développement.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== TARIFS ===== -->
+    <section class="pricing container" id="tarifs">
+      <p class="giant giant-inline" aria-hidden="true">Tarifs</p>
+      <h2 class="sr-only">Tarifs</h2>
       <div class="offers">
         <article class="offer">
           <h3>Création du site</h3>
-          <p class="offer-price">Sur devis</p>
-          <p class="offer-desc">Un prix fixe, annoncé avant de commencer. Pas de surprise en fin de chantier.</p>
+          <p class="price">Sur devis</p>
+          <p class="offer-lead">Un prix fixe annoncé avant de commencer.</p>
           <ul>
-            <li>Design sur mesure</li>
-            <li>Jusqu'à 5 pages</li>
-            <li>Adapté au téléphone</li>
+            <li>Design 100 % sur mesure</li>
+            <li>Jusqu'à 5 pages, adapté au téléphone</li>
             <li>Formulaire de demande de devis</li>
             <li>Référencement local et fiche Google</li>
           </ul>
-          <a href="#contact" class="btn btn-blue">Demander un devis</a>
+          <a href="#contact" class="pill pill-dark">Demander un devis <span class="arr">↗</span></a>
         </article>
         <article class="offer offer-dark">
           <h3>Entretien</h3>
-          <p class="offer-price">100&nbsp;€<small>/mois</small></p>
-          <p class="offer-desc">Tout ce qu'il faut pour que le site reste en ligne, à jour et utile.</p>
+          <p class="price">100&nbsp;€<small>&nbsp;/ mois</small></p>
+          <p class="offer-lead">Votre site reste en ligne, à jour et sécurisé.</p>
           <ul>
             <li>Hébergement et nom de domaine</li>
-            <li>Mises à jour et sécurité</li>
-            <li>Sauvegardes</li>
+            <li>Mises à jour et sauvegardes</li>
             <li>Modifications de textes et photos</li>
             <li>Un interlocuteur joignable</li>
           </ul>
-          <a href="#contact" class="btn btn-white">En parler</a>
+          <a href="#contact" class="pill pill-white">En parler <span class="arr">↗</span></a>
         </article>
       </div>
     </section>
 
-    <!-- ======== À PROPOS ======== -->
-    <section class="about" id="apropos">
-      <div class="about-photo"><span>Votre photo</span></div>
-      <div class="about-text">
-        <h2 class="section-title">Qui construit votre site</h2>
-        <p>Je m'appelle Mathias. Avant le web, j'ai travaillé deux ans dans une petite entreprise de rénovation&nbsp;: salles de bain, cuisines, finitions.</p>
-        <p>J'en ai gardé une façon de travailler&nbsp;: comprendre le besoin avant de commencer, annoncer un prix clair, livrer un travail propre et rester joignable après.</p>
-        <p>Vous ne passez pas par une agence ni par un commercial. Vous parlez directement à la personne qui fabrique votre site.</p>
-      </div>
-    </section>
-
-    <!-- ======== FAQ ======== -->
+    <!-- ===== FAQ ===== -->
     <section class="faq" id="faq">
-      <h2 class="section-title">Vos questions</h2>
-      <details><summary>En combien de temps mon site sera-t-il en ligne&nbsp;?</summary><p>En général deux à quatre semaines entre notre premier appel et la mise en ligne, selon la rapidité de nos échanges.</p></details>
-      <details><summary>Je n'ai ni photos ni textes, c'est un problème&nbsp;?</summary><p>Non. Je vous aide à rédiger les textes et à choisir les visuels pour que votre site soit prêt sans prise de tête.</p></details>
-      <details><summary>Pourrai-je modifier mon site moi-même&nbsp;?</summary><p>Oui si vous le souhaitez. Sinon, avec l'entretien mensuel, vous m'envoyez vos changements et je m'en occupe.</p></details>
-      <details><summary>Je suis engagé combien de temps pour l'entretien&nbsp;?</summary><p>Le détail des conditions est précisé dans le devis. Le site, le domaine et le contenu restent à vous dans tous les cas.</p></details>
-      <details><summary>Vous travaillez seulement en Seine-et-Marne&nbsp;?</summary><p>Je suis basé en Seine-et-Marne et je me déplace volontiers dans le coin, mais je peux travailler avec vous à distance où que vous soyez.</p></details>
+      <h2 class="kicker">Vos questions</h2>
+      <details><summary>Qui êtes-vous&nbsp;?</summary><p>Je m'appelle Mathias, je suis basé en Seine-et-Marne. J'ai travaillé deux ans dans la rénovation avant de créer des sites, je connais donc le quotidien des artisans et des petites entreprises.</p></details>
+      <details><summary>Avec quels types d'entreprises travaillez-vous&nbsp;?</summary><p>Artisans, commerces, restaurants, professions libérales, indépendants : toutes les entreprises qui ont besoin d'être trouvées et contactées par des clients.</p></details>
+      <details><summary>Comment se déroule un projet&nbsp;?</summary><p>Un appel pour comprendre votre besoin, une maquette que vous validez, le développement, puis la mise en ligne. Vous êtes tenu au courant à chaque étape.</p></details>
+      <details><summary>Combien de temps faut-il&nbsp;?</summary><p>En général deux à quatre semaines entre le premier appel et la mise en ligne, selon la rapidité de nos échanges.</p></details>
+      <details><summary>Je n'ai ni photos ni textes, c'est un problème&nbsp;?</summary><p>Non. Je vous aide à rédiger les textes et à choisir les visuels.</p></details>
+      <details><summary>Qui est propriétaire du site&nbsp;?</summary><p>Vous. Le nom de domaine, le contenu et le site vous appartiennent.</p></details>
+      <details><summary>Et après la mise en ligne&nbsp;?</summary><p>Avec l'entretien à 100 € par mois, je m'occupe de l'hébergement, des mises à jour, de la sécurité et de vos modifications.</p></details>
+      <p class="faq-more">Une autre question&nbsp;? <a href="#contact">Écrivez-moi directement.</a></p>
     </section>
 
-    <!-- ======== CONTACT ======== -->
-    <section class="contact" id="contact">
-      <div class="contact-intro">
-        <h2 class="section-title">On démarre le chantier&nbsp;?</h2>
-        <p>Décrivez votre activité en quelques lignes. Je vous réponds sous 24 h avec un premier avis et un devis gratuit.</p>
-        <p class="contact-direct">
-          <a href="mailto:contact@tondomaine.fr">contact@tondomaine.fr</a><br />
+    <!-- ===== CONTACT ===== -->
+    <section class="contact container" id="contact">
+      <h2 class="contact-title">Parlons de votre projet,<br />ou dites simplement <span class="grad">bonjour.</span></h2>
+      <div class="contact-grid">
+        <div class="contact-direct">
+          <a href="mailto:contact@tondomaine.fr">contact@tondomaine.fr</a>
           <a href="tel:+33600000000">06 00 00 00 00</a>
-        </p>
+          <span>Seine-et-Marne</span>
+        </div>
+        <form class="form" id="contact-form" novalidate>
+          <div class="field"><label for="f-name">Nom</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="f-phone">Téléphone <em>(facultatif)</em></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" /></div>
+          <div class="field"><label for="f-activity">Activité</label>
+            <select id="f-activity" name="activity" required>
+              <option value="">Choisir</option><option>Artisan</option><option>Commerce</option><option>Restaurant / café</option><option>Coiffure / bien-être</option><option>Indépendant</option><option>Autre</option>
+            </select>
+          </div>
+          <div class="field field-full"><label for="f-message">Votre projet</label><textarea id="f-message" name="message" rows="4" required placeholder="Ex. : je suis électricien à Melun et je veux recevoir des demandes de devis."></textarea></div>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="field-full form-foot">
+            <button type="submit" class="pill pill-dark">Envoyer ma demande <span class="arr">↗</span></button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
       </div>
-      <form class="form" id="contact-form" novalidate>
-        <div class="field"><label for="f-name">Nom</label><input id="f-name" name="name" type="text" autocomplete="name" required /></div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
-        <div class="field"><label for="f-phone">Téléphone <em>(facultatif)</em></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" /></div>
-        <div class="field"><label for="f-activity">Votre activité</label>
-          <select id="f-activity" name="activity" required>
-            <option value="">Choisir</option><option>Artisan du bâtiment</option><option>Commerce</option><option>Restaurant / café</option><option>Coiffure / bien-être</option><option>Indépendant</option><option>Autre</option>
-          </select>
-        </div>
-        <div class="field field-full"><label for="f-message">Votre projet</label><textarea id="f-message" name="message" rows="5" required placeholder="Ex. : je suis plombier à Melun, je n'ai pas de site et je veux recevoir des demandes de devis."></textarea></div>
-        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <div class="field-full form-foot">
-          <button type="submit" class="btn btn-blue">Envoyer ma demande</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </div>
-      </form>
     </section>
   </main>
 
-  <footer class="footer">
-    <a href="#top" class="logo">Mathias<span class="dot">.</span></a>
-    <p>Sites web sur mesure en Seine-et-Marne</p>
-    <nav class="footer-links">
-      <a href="#">Instagram</a><a href="#">LinkedIn</a><a href="mentions-legales.html">Mentions légales</a>
-    </nav>
-    <p class="footer-copy">© <span id="year">2026</span> Mathias</p>
+  <footer class="footer container">
+    <div class="footer-links">
+      <a href="#realisations">Réalisations</a><a href="#methode">Méthode</a><a href="#tarifs">Tarifs</a><a href="#faq">Questions</a><a href="#contact">Contact</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Mathias. Tous droits réservés.</span>
+      <span class="footer-legal"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="mentions-legales.html">Mentions légales</a></span>
+    </div>
   </footer>
 
-  <script src="script.js?v=5"></script>
+  <!-- Bouton flottant -->
+  <a href="#contact" class="pill pill-dark float-cta">Planifier un appel <span class="arr">↗</span></a>
+
+  <script src="script.js?v=6"></script>
 </body>
 </html>

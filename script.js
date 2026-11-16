@@ -1,7 +1,3 @@
-// ===== Header =====
-const header = document.querySelector('.header');
-window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10), { passive: true });
-
 // ===== Menu mobile =====
 const burger = document.querySelector('.burger');
 const mobileMenu = document.querySelector('.mobile-menu');
@@ -13,60 +9,82 @@ function setMenu(open) {
 burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
 mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
-// ===== Le chantier : le site se construit pendant qu'on descend =====
-const build = document.querySelector('.build');
-const buildLabel = document.querySelector('.build-step');
-const labels = ['Terrain vierge', 'Étape 1 : le plan', 'Étape 2 : le gros œuvre', 'Étape 3 : les finitions', 'Étape 4 : la réception', 'Étape 5 : l\'entretien'];
-const stages = document.querySelectorAll('[data-stage]:not(.build)');
+// ===== Mot qui change dans le titre =====
+const words = document.querySelectorAll('.rot-word');
+let wi = 0;
+setInterval(() => {
+  const prev = words[wi];
+  prev.classList.remove('is-active');
+  prev.classList.add('is-leaving');
+  setTimeout(() => prev.classList.remove('is-leaving'), 600);
+  wi = (wi + 1) % words.length;
+  words[wi].classList.add('is-active');
+}, 2600);
 
-function setStage(n) {
-  if (build.dataset.stage === String(n)) return;
-  build.dataset.stage = n;
-  build.classList.toggle('built', n >= 2);
-  build.classList.toggle('online', n >= 4);
-  buildLabel.textContent = labels[n];
-  stages.forEach((s) => s.classList.toggle('is-active', s.dataset.stage === String(n)));
+// ===== Texte qui se révèle mot à mot au scroll =====
+const panel = document.querySelector('.panel');
+const revealWords = document.querySelectorAll('.reveal-text span');
+function updateReveal() {
+  const r = panel.getBoundingClientRect();
+  const vh = window.innerHeight;
+  // 0 quand le panneau entre en bas de l'écran, 1 quand son centre atteint 40 % de la hauteur
+  const progress = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.6 + r.height * 0.5)));
+  const n = Math.round(progress * revealWords.length);
+  revealWords.forEach((w, i) => w.classList.toggle('on', i < n));
 }
 
-// L'étape active est celle qui passe au milieu de l'écran
-function updateStage() {
-  const middle = window.innerHeight * (window.innerWidth <= 960 ? 0.8 : 0.55);
-  let current = 0;
-  stages.forEach((s) => {
-    if (s.getBoundingClientRect().top < middle) current = Number(s.dataset.stage);
+// ===== Villes qui défilent =====
+const cities = document.querySelectorAll('.cities-list span');
+let ci = 0;
+function renderCities() {
+  const n = cities.length;
+  cities.forEach((c, i) => {
+    c.classList.toggle('is-active', i === ci);
+    c.classList.toggle('is-prev', i === (ci - 1 + n) % n);
+    c.classList.toggle('is-next', i === (ci + 1) % n);
   });
-  setStage(current);
 }
-window.addEventListener('scroll', updateStage, { passive: true });
-window.addEventListener('resize', updateStage);
-updateStage();
+renderCities();
+setInterval(() => { ci = (ci + 1) % cities.length; renderCities(); }, 2000);
 
-// ===== Réalisations : flèches =====
-const track = document.querySelector('.work-track');
-document.querySelectorAll('.arrow').forEach((btn) =>
-  btn.addEventListener('click', () => {
-    const card = track.querySelector('.project');
-    track.scrollBy({ left: (card.offsetWidth + 28) * Number(btn.dataset.dir), behavior: 'smooth' });
-  })
-);
+// ===== Bouton flottant + lien actif =====
+const floatCta = document.querySelector('.float-cta');
+const hero = document.querySelector('.hero');
+const contact = document.getElementById('contact');
+function onScroll() {
+  updateReveal();
+  const pastHero = hero.getBoundingClientRect().bottom < 0;
+  const atContact = contact.getBoundingClientRect().top < window.innerHeight * 0.8;
+  floatCta.classList.toggle('show', pastHero && !atContact);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', onScroll);
+onScroll();
 
-// ===== FAQ : une seule réponse ouverte =====
-const faqItems = document.querySelectorAll('.faq details');
-faqItems.forEach((d) =>
-  d.addEventListener('toggle', () => {
-    if (d.open) faqItems.forEach((o) => { if (o !== d) o.open = false; });
-  })
-);
-
-// ===== Lien actif dans le menu =====
-const navLinks = document.querySelectorAll('.nav a');
+const navLinks = document.querySelectorAll('.nav-links a');
 const sectionObserver = new IntersectionObserver(
   (entries) => entries.forEach((e) => {
     if (e.isIntersecting) navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
   }),
   { rootMargin: '-45% 0px -50% 0px' }
 );
-document.querySelectorAll('#chantier, #realisations, #tarifs, #apropos').forEach((s) => sectionObserver.observe(s));
+document.querySelectorAll('#realisations, #methode, #tarifs, #faq').forEach((s) => sectionObserver.observe(s));
+
+// ===== Apparitions douces =====
+document.querySelectorAll('.bento .tile, .card, .offer, .trades').forEach((el) => el.classList.add('fade'));
+const fadeObserver = new IntersectionObserver(
+  (entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
+  }),
+  { threshold: 0.15 }
+);
+document.querySelectorAll('.fade').forEach((el) => fadeObserver.observe(el));
+
+// ===== FAQ : une seule réponse ouverte =====
+const faqItems = document.querySelectorAll('.faq details');
+faqItems.forEach((d) => d.addEventListener('toggle', () => {
+  if (d.open) faqItems.forEach((o) => { if (o !== d) o.open = false; });
+}));
 
 // ===== Année =====
 document.getElementById('year').textContent = new Date().getFullYear();
@@ -132,7 +150,6 @@ form.addEventListener('submit', async (e) => {
     btn.disabled = false;
   }
 });
-
 form.querySelectorAll('input, select, textarea').forEach((el) =>
   el.addEventListener('input', () => el.closest('.field')?.classList.remove('has-error'))
 );
