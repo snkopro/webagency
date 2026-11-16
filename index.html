@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mathias — Webdesigner en Seine-et-Marne</title>
   <meta name="description" content="Création de sites web sur mesure pour artisans, commerçants et indépendants. Simples, rapides, et pensés pour vous apporter des clients." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -21,7 +19,7 @@
       <a href="#methode">Méthode</a>
       <a href="#apropos">À propos</a>
     </nav>
-    <a href="#contact" class="btn btn-dark">Démarrer un projet</a>
+    <a href="mailto:contact@tondomaine.fr" class="btn btn-dark btn-sm">contact@tondomaine.fr</a>
     <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span></button>
   </header>
 
@@ -37,31 +35,26 @@
   <main>
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-text">
-        <p class="hello reveal">Bonjour, moi c'est Mathias 👋</p>
-        <h1 class="reveal">
-          Je crée des sites web<br />
-          pour <span class="rotator" aria-live="polite">
-            <span class="rotator-word is-active">les artisans</span>
-            <span class="rotator-word">les commerçants</span>
-            <span class="rotator-word">les restaurants</span>
-            <span class="rotator-word">les indépendants</span>
-          </span>
-        </h1>
-        <p class="hero-sub reveal">Des sites simples, rapides et sur mesure, pensés pour vous apporter des clients. Basé en Seine-et-Marne.</p>
-        <div class="hero-ctas reveal">
-          <a href="#contact" class="btn btn-accent">Demander un devis</a>
-          <a href="#realisations" class="btn btn-ghost">Voir les réalisations</a>
-        </div>
+      <p class="hello">👋 Salut, moi c'est Mathias, je crée des</p>
+      <h1 class="hero-title">
+        <span class="line-fill">Sites web</span>
+        <span class="line-outline rotator" aria-live="polite">
+          <span class="rotator-word is-active">sur mesure</span>
+          <span class="rotator-word">pour artisans</span>
+          <span class="rotator-word">pour commerces</span>
+          <span class="rotator-word">pour restos</span>
+        </span>
+      </h1>
+      <div class="portrait" aria-hidden="true"><span>Ta photo détourée<br />(noir & blanc)</span></div>
+      <div class="hero-bottom">
+        <p class="location">en Seine-et-Marne</p>
+        <ul class="hero-tags">
+          <li>Artisans</li><li>Commerces</li><li>Restaurants</li><li>Indépendants</li>
+        </ul>
       </div>
-      <div class="hero-visual reveal">
-        <div class="portrait">
-          <span>Ta photo ici</span>
-        </div>
-        <div class="badge">
-          <strong>Sur mesure</strong>
-          <span>pas de template</span>
-        </div>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-dark">Vous avez besoin d'un site</a>
+        <a href="#realisations" class="btn btn-ghost">Voir mes réalisations</a>
       </div>
     </section>
 
