@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <link rel="preload" href="fonts/rethink-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
   <script>document.documentElement.classList.replace("no-js", "js")</script>
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 <body>
 
@@ -85,18 +85,26 @@
       </ul>
     </section>
 
-    <!-- ===== RÉALISATIONS ===== -->
-    <section class="work" id="realisations">
-      <p class="giant" aria-hidden="true">Projets</p>
-      <div class="container">
-        <h2 class="sr-only">Réalisations</h2>
-        <div class="bento">
-          <a href="#" class="tile t-wide"><div class="tile-img"><span>Capture du projet</span></div><div class="tile-cap"><strong>Nom du client</strong><span>Artisan, Melun</span></div></a>
-          <a href="#" class="tile t-dark"><div class="tile-img"><span>Capture mobile</span></div><div class="tile-cap"><strong>Nom du client</strong><span>Restaurant, Provins</span></div></a>
-          <a href="#" class="tile"><div class="tile-img"><span>Capture du projet</span></div><div class="tile-cap"><strong>Nom du client</strong><span>Commerce, Fontainebleau</span></div></a>
-          <a href="#" class="tile t-wide"><div class="tile-img"><span>Capture du projet</span></div><div class="tile-cap"><strong>Nom du client</strong><span>Indépendant, Meaux</span></div></a>
+    <!-- ===== RÉALISATIONS : défilement horizontal ===== -->
+    <section class="hscroll" id="realisations" aria-label="Réalisations">
+      <div class="hs-sticky">
+        <div class="hs-track">
+          <div class="hs-intro">
+            <p class="giant hs-giant" aria-hidden="true">Projets</p>
+            <h2 class="hs-title">Quelques sites<br />livrés récemment.</h2>
+            <p class="hs-sub">Faites défiler, on part sur la droite.</p>
+          </div>
+          <a href="#" class="hs-card"><div class="hs-img"><div class="hs-shot"><span>Capture du projet</span></div></div><div class="hs-cap"><strong>Nom du client</strong><span>Artisan, Melun</span></div></a>
+          <a href="#" class="hs-card dark"><div class="hs-img"><div class="hs-shot"><span>Capture du projet</span></div></div><div class="hs-cap"><strong>Nom du client</strong><span>Restaurant, Provins</span></div></a>
+          <a href="#" class="hs-card"><div class="hs-img"><div class="hs-shot"><span>Capture du projet</span></div></div><div class="hs-cap"><strong>Nom du client</strong><span>Commerce, Fontainebleau</span></div></a>
+          <a href="#" class="hs-card warm"><div class="hs-img"><div class="hs-shot"><span>Capture du projet</span></div></div><div class="hs-cap"><strong>Nom du client</strong><span>Coiffure, Meaux</span></div></a>
+          <a href="#" class="hs-card"><div class="hs-img"><div class="hs-shot"><span>Capture du projet</span></div></div><div class="hs-cap"><strong>Nom du client</strong><span>Indépendant, Nemours</span></div></a>
+          <div class="hs-end">
+            <p class="hs-end-title">Le prochain,<br /><span class="grad">c'est le vôtre&nbsp;?</span></p>
+            <a href="#contact" class="pill pill-dark">Lancer votre projet <span class="arr">↗</span></a>
+          </div>
         </div>
-        <div class="center"><a href="#contact" class="pill pill-dark">Lancer votre projet <span class="arr">↗</span></a></div>
+        <div class="hs-progress" aria-hidden="true"><span></span></div>
       </div>
     </section>
 
@@ -240,6 +248,6 @@
   <!-- Bouton flottant -->
   <a href="#contact" class="pill pill-dark float-cta">Planifier un appel <span class="arr">↗</span></a>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>

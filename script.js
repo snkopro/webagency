@@ -47,12 +47,42 @@ function renderCities() {
 renderCities();
 setInterval(() => { ci = (ci + 1) % cities.length; renderCities(); }, 2000);
 
+// ===== Réalisations : la page part vers la droite =====
+const hs = document.querySelector('.hscroll');
+const hsTrack = document.querySelector('.hs-track');
+const hsShots = document.querySelectorAll('.hs-shot');
+let hsDistance = 0;
+function sizeHscroll() {
+  hsDistance = Math.max(0, hsTrack.scrollWidth - window.innerWidth);
+  hs.style.setProperty('--hs-height', (window.innerHeight + hsDistance) + 'px');
+}
+function updateHscroll() {
+  const top = hs.getBoundingClientRect().top;
+  const p = hsDistance ? Math.min(1, Math.max(0, -top / hsDistance)) : 0;
+  hsTrack.style.transform = `translate3d(${-p * hsDistance}px, 0, 0)`;
+  hs.style.setProperty('--hs-p', p);
+  // léger effet de profondeur sur les images
+  hsShots.forEach((shot) => {
+    const r = shot.parentElement.getBoundingClientRect();
+    const offset = (r.left + r.width / 2 - window.innerWidth / 2) / window.innerWidth;
+    shot.style.setProperty('--px', (offset * -40).toFixed(1) + 'px');
+  });
+}
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  sizeHscroll();
+  window.addEventListener('resize', () => { sizeHscroll(); updateHscroll(); });
+  document.fonts.ready.then(() => { sizeHscroll(); updateHscroll(); });
+} else {
+  hs.classList.add('hs-off');
+}
+
 // ===== Bouton flottant + lien actif =====
 const floatCta = document.querySelector('.float-cta');
 const hero = document.querySelector('.hero');
 const contact = document.getElementById('contact');
 function onScroll() {
   updateReveal();
+  if (hsDistance) updateHscroll();
   const pastHero = hero.getBoundingClientRect().bottom < 0;
   const atContact = contact.getBoundingClientRect().top < window.innerHeight * 0.8;
   floatCta.classList.toggle('show', pastHero && !atContact);
@@ -71,7 +101,7 @@ const sectionObserver = new IntersectionObserver(
 document.querySelectorAll('#realisations, #methode, #tarifs, #faq').forEach((s) => sectionObserver.observe(s));
 
 // ===== Apparitions douces =====
-document.querySelectorAll('.bento .tile, .card, .offer, .trades').forEach((el) => el.classList.add('fade'));
+document.querySelectorAll('.card, .offer, .trades').forEach((el) => el.classList.add('fade'));
 const fadeObserver = new IntersectionObserver(
   (entries) => entries.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
