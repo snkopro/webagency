@@ -3,152 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mathias — Webdesigner en Seine-et-Marne</title>
-  <meta name="description" content="Création de sites web sur mesure pour artisans, commerçants et indépendants. Simples, rapides, et pensés pour vous apporter des clients." />
+  <title>Mathias — Webdesigner & développeur en Seine-et-Marne</title>
+  <meta name="description" content="Création de sites web sur mesure pour artisans, commerçants et indépendants en Seine-et-Marne." />
   <link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- Écran de chargement -->
+  <div class="loader" aria-hidden="true">
+    <span class="logo logo-light">Mathias<span class="dot">.</span></span>
+  </div>
+
   <!-- HEADER -->
   <header class="header">
-    <a href="#" class="logo">mathias<span class="dot">.</span></a>
+    <a href="/" class="logo">Mathias<span class="dot">.</span></a>
     <nav class="nav">
-      <a href="#services">Services</a>
       <a href="#realisations">Réalisations</a>
-      <a href="#methode">Méthode</a>
+      <a href="#services">Services</a>
       <a href="#apropos">À propos</a>
     </nav>
-    <a href="mailto:contact@tondomaine.fr" class="btn btn-dark btn-sm">contact@tondomaine.fr</a>
+    <a href="mailto:contact@tondomaine.fr" class="btn btn-dark">contact@tondomaine.fr</a>
     <button class="burger" aria-label="Ouvrir le menu"><span></span><span></span></button>
   </header>
 
-  <!-- MENU MOBILE -->
   <div class="mobile-menu">
-    <a href="#services">Services <span>→</span></a>
     <a href="#realisations">Réalisations <span>→</span></a>
-    <a href="#methode">Méthode <span>→</span></a>
+    <a href="#services">Services <span>→</span></a>
     <a href="#apropos">À propos <span>→</span></a>
-    <a href="#contact" class="btn btn-dark">Démarrer un projet</a>
+    <a href="mailto:contact@tondomaine.fr" class="btn btn-dark">contact@tondomaine.fr</a>
   </div>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <p class="hello">👋 Salut, moi c'est Mathias, je crée des</p>
-      <h1 class="hero-title">
-        <span class="line-fill">Sites web</span>
-        <span class="line-outline rotator" aria-live="polite">
-          <span class="rotator-word is-active">sur mesure</span>
-          <span class="rotator-word">pour artisans</span>
-          <span class="rotator-word">pour commerces</span>
-          <span class="rotator-word">pour restos</span>
-        </span>
+  <!-- HERO -->
+  <main class="hero" data-active="1">
+    <p class="hello">👋, je m'appelle Mathias et je suis</p>
+
+    <div class="title-wrap">
+      <!-- Couche du fond : la ligne active est pleine, derrière la photo -->
+      <div class="title title-base" aria-hidden="true">
+        <span class="line l1">Webdesigner</span>
+        <span class="line l2">&amp; Développeur</span>
+      </div>
+
+      <!-- Photo -->
+      <div class="portrait" aria-hidden="true">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="fadeG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#cfcfcf" />
+              <stop offset="0.75" stop-color="#e4e4e4" />
+              <stop offset="1" stop-color="#ffffff" />
+            </linearGradient>
+          </defs>
+          <circle cx="200" cy="140" r="78" fill="url(#fadeG)" />
+          <path d="M40 400 C50 290 110 240 200 240 C290 240 350 290 360 400 Z" fill="url(#fadeG)" />
+        </svg>
+        <span class="portrait-label">Ta photo détourée N&amp;B</span>
+      </div>
+
+      <!-- Couche du dessus : contours, cliquables -->
+      <h1 class="title title-top">
+        <a href="#realisations" class="line l1" data-line="1">Webdesigner</a>
+        <a href="#services" class="line l2" data-line="2">&amp; Développeur</a>
       </h1>
-      <div class="portrait" aria-hidden="true"><span>Ta photo détourée<br />(noir & blanc)</span></div>
-      <div class="hero-bottom">
-        <p class="location">en Seine-et-Marne</p>
-        <ul class="hero-tags">
-          <li>Artisans</li><li>Commerces</li><li>Restaurants</li><li>Indépendants</li>
-        </ul>
-      </div>
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-dark">Vous avez besoin d'un site</a>
-        <a href="#realisations" class="btn btn-ghost">Voir mes réalisations</a>
-      </div>
-    </section>
+    </div>
 
-    <!-- BANDEAU MÉTIERS -->
-    <section class="marquee" aria-label="Secteurs accompagnés">
-      <div class="marquee-track">
-        <span>Plombiers</span><i>✦</i><span>Électriciens</span><i>✦</i><span>Menuisiers</span><i>✦</i><span>Boulangeries</span><i>✦</i><span>Restaurants</span><i>✦</i><span>Coiffeurs</span><i>✦</i><span>Coachs</span><i>✦</i><span>Paysagistes</span><i>✦</i><span>Commerces</span><i>✦</i>
-        <span>Plombiers</span><i>✦</i><span>Électriciens</span><i>✦</i><span>Menuisiers</span><i>✦</i><span>Boulangeries</span><i>✦</i><span>Restaurants</span><i>✦</i><span>Coiffeurs</span><i>✦</i><span>Coachs</span><i>✦</i><span>Paysagistes</span><i>✦</i><span>Commerces</span><i>✦</i>
-      </div>
-    </section>
+    <div class="hero-bottom">
+      <p class="location">en Seine-et-Marne</p>
+      <ul class="sectors">
+        <li>Artisans</li><li>Commerces</li><li>Restaurants</li><li>Indépendants</li>
+      </ul>
+    </div>
 
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <p class="eyebrow reveal">Services</p>
-      <h2 class="reveal">Ce que je fais pour vous</h2>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="card-num">01</span>
-          <h3>Site vitrine</h3>
-          <p>Un site clair qui présente votre activité, vos réalisations et donne envie de vous contacter.</p>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">02</span>
-          <h3>Visibilité Google</h3>
-          <p>Référencement local et fiche Google optimisée pour être trouvé par les clients près de chez vous.</p>
-        </article>
-        <article class="card reveal">
-          <span class="card-num">03</span>
-          <h3>Suivi & entretien</h3>
-          <p>Mises à jour, modifications et sécurité : vous vous occupez de votre métier, je m'occupe du site.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- RÉALISATIONS -->
-    <section class="section" id="realisations">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow reveal">Réalisations</p>
-          <h2 class="reveal">Quelques projets</h2>
-        </div>
-        <div class="carousel-controls reveal">
-          <button class="arrow" data-dir="-1" aria-label="Précédent">←</button>
-          <button class="arrow" data-dir="1" aria-label="Suivant">→</button>
-        </div>
-      </div>
-      <div class="carousel reveal">
-        <a class="project" href="#"><div class="project-img"></div><div class="project-info"><h3>Projet 1</h3><span>Artisan</span></div></a>
-        <a class="project" href="#"><div class="project-img"></div><div class="project-info"><h3>Projet 2</h3><span>Commerce</span></div></a>
-        <a class="project" href="#"><div class="project-img"></div><div class="project-info"><h3>Projet 3</h3><span>Restaurant</span></div></a>
-        <a class="project" href="#"><div class="project-img"></div><div class="project-info"><h3>Projet 4</h3><span>Indépendant</span></div></a>
-      </div>
-    </section>
-
-    <!-- MÉTHODE -->
-    <section class="section" id="methode">
-      <p class="eyebrow reveal">Méthode</p>
-      <h2 class="reveal">Comment ça se passe</h2>
-      <ol class="steps">
-        <li class="reveal"><span>1</span><div><h3>On échange</h3><p>Un appel pour comprendre votre activité et vos objectifs.</p></div></li>
-        <li class="reveal"><span>2</span><div><h3>Je conçois</h3><p>Une maquette sur mesure que vous validez avant le développement.</p></div></li>
-        <li class="reveal"><span>3</span><div><h3>Je développe</h3><p>Un site rapide, adapté au mobile et prêt pour Google.</p></div></li>
-        <li class="reveal"><span>4</span><div><h3>On lance</h3><p>Mise en ligne, puis suivi pour que le site reste à jour.</p></div></li>
-      </ol>
-    </section>
-
-    <!-- À PROPOS -->
-    <section class="section about" id="apropos">
-      <p class="eyebrow reveal">À propos</p>
-      <h2 class="reveal">Un interlocuteur unique, qui connaît le terrain.</h2>
-      <p class="about-text reveal">J'ai travaillé sur les chantiers avant de créer des sites. Je sais ce que c'est de manquer de temps et de vouloir des résultats concrets. Pas de jargon, pas d'intermédiaire : vous parlez directement à la personne qui fabrique votre site.</p>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="cta-final" id="contact">
-      <h2 class="reveal">Un projet en tête ?</h2>
-      <p class="reveal">Parlons-en. Réponse sous 24 h, devis gratuit.</p>
-      <a href="mailto:contact@tondomaine.fr" class="btn btn-accent btn-lg reveal">Démarrer un projet →</a>
-    </section>
+    <div class="hero-ctas">
+      <a href="mailto:contact@tondomaine.fr" class="btn btn-dark">Vous avez besoin d'un site</a>
+      <a href="#realisations" class="btn btn-light">Voir mes réalisations</a>
+    </div>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <a href="#" class="logo">mathias<span class="dot">.</span></a>
-    <div class="footer-links">
-      <a href="mailto:contact@tondomaine.fr">contact@tondomaine.fr</a>
-      <a href="tel:+33600000000">06 00 00 00 00</a>
-    </div>
-    <div class="footer-social">
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-    </div>
-    <p class="footer-copy">© 2026 — Seine-et-Marne</p>
-  </footer>
+  <!-- Curseur personnalisé -->
+  <div class="cursor" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
 
   <script src="script.js"></script>
 </body>
