@@ -115,6 +115,7 @@ document.querySelectorAll('.fade').forEach((el) => fadeObserver.observe(el));
 
 // ===== Options sur mesure + panier =====
 // Prix payés une seule fois. Modifier ici pour changer les prix affichés partout.
+const BASE_PRICE = 800; // site sur mesure, sans option
 const ICONS = {
   reply: '<path d="M4 6h16v10H8l-4 4z"/><path d="M8 10h8M8 13h5"/>',
   star: '<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/>',
@@ -123,8 +124,8 @@ const ICONS = {
   shield: '<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
 };
 const OPTIONS = [
-  { id: 'autoreply', icon: 'reply', title: 'Relance automatique des demandes', desc: 'Dès qu\'un client remplit le formulaire, il reçoit un message à votre nom. Vous êtes prévenu avec son numéro pour le rappeler en un geste.', gain: '×7 plus de chances de décrocher le client en le rappelant dans l\'heure', price: 50, demo: 'demo-autoreply' },
-  { id: 'avis', icon: 'star', title: 'Demandes d\'avis Google automatiques', desc: 'Après une prestation, votre client reçoit une invitation à laisser un avis sur votre fiche Google.', gain: 'Plus d\'avis, donc plus de confiance et un meilleur classement local', price: 50 },
+  { id: 'autoreply', icon: 'reply', title: 'Relance automatique des demandes', desc: 'Dès qu\'un client remplit le formulaire, il reçoit un message à votre nom. Vous êtes prévenu avec son numéro pour le rappeler en un geste.', gain: '×7 plus de chances de décrocher le client en le rappelant dans l\'heure', price: 100, demo: 'demo-autoreply' },
+  { id: 'avis', icon: 'star', title: 'Demandes d\'avis Google automatiques', desc: 'Après une prestation, votre client reçoit une invitation à laisser un avis sur votre fiche Google.', gain: 'Plus d\'avis, donc plus de confiance et un meilleur classement local', price: 100 },
   { id: 'rdv', icon: 'calendar', title: 'Prise de rendez-vous en ligne', desc: 'Vos clients choisissent un créneau directement sur le site, ajouté à votre agenda, avec rappel automatique.', gain: 'Moins d\'appels manqués, moins de rendez-vous oubliés', price: 100 },
   { id: 'devis', icon: 'quote', title: 'Devis en ligne guidé', desc: 'Un formulaire en quelques étapes qui pose les bonnes questions et permet au client de joindre des photos.', gain: 'Des demandes déjà qualifiées avant même votre appel', price: 150 },
   { id: 'entretien', icon: 'shield', title: 'Entretien du site', desc: 'Hébergement, mises à jour, sécurité, sauvegardes et petites modifications pendant un an.', gain: 'Un site toujours en ligne et à jour, sans vous en occuper', price: 150, note: '1 an' },
@@ -157,7 +158,7 @@ function renderCart() {
   const list = OPTIONS.filter((o) => selected.has(o.id));
   cartItems.innerHTML = list.map((o) => `<li><span>${o.title}</span><span>${priceLabel(o)}<button type="button" data-remove="${o.id}" aria-label="Retirer ${o.title}">✕</button></span></li>`).join('');
   cartEmpty.hidden = list.length > 0;
-  document.getElementById('cart-total').textContent = euro(list.reduce((t, o) => t + o.price, 0));
+  document.getElementById('cart-total').textContent = euro(BASE_PRICE + list.reduce((t, o) => t + o.price, 0));
   document.getElementById('cart-count').textContent = list.length ? `${list.length} option${list.length > 1 ? 's' : ''}` : '';
   optGrid.querySelectorAll('.opt').forEach((card) => {
     const on = selected.has(card.dataset.id);
@@ -183,8 +184,8 @@ document.getElementById('cart-cta').addEventListener('click', () => {
   const list = OPTIONS.filter((o) => selected.has(o.id));
   const msg = document.getElementById('f-message');
   const lines = list.length
-    ? 'Bonjour, je suis intéressé par un site sur mesure avec les options suivantes :\n' + list.map((o) => '- ' + o.title + ' (' + priceLabel(o) + ')').join('\n')
-    : 'Bonjour, je suis intéressé par un site sur mesure.';
+    ? 'Bonjour, je suis intéressé par un site sur mesure (' + euro(BASE_PRICE) + ') avec les options suivantes :\n' + list.map((o) => '- ' + o.title + ' (' + priceLabel(o) + ')').join('\n') + '\nTotal : ' + euro(BASE_PRICE + list.reduce((t, o) => t + o.price, 0))
+    : 'Bonjour, je suis intéressé par un site sur mesure (' + euro(BASE_PRICE) + ').';
   msg.value = lines + '\n\nMon activité : ';
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   setTimeout(() => { msg.focus(); msg.setSelectionRange(msg.value.length, msg.value.length); }, 700);
