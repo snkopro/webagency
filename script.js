@@ -101,10 +101,10 @@ const sectionObserver = new IntersectionObserver(
   }),
   { rootMargin: '-45% 0px -50% 0px' }
 );
-document.querySelectorAll('#realisations, #methode, #options, #tarifs, #faq').forEach((s) => sectionObserver.observe(s));
+document.querySelectorAll('#realisations, #options, #tarifs, #faq').forEach((s) => sectionObserver.observe(s));
 
 // ===== Apparitions douces =====
-document.querySelectorAll('.card, .offer, .option').forEach((el) => el.classList.add('fade'));
+document.querySelectorAll('.offer, .option').forEach((el) => el.classList.add('fade'));
 const fadeObserver = new IntersectionObserver(
   (entries) => entries.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }

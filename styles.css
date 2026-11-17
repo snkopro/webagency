@@ -207,36 +207,6 @@ strong { font-weight: 500; color: var(--ink); }
 .js .cities-list span.is-next { opacity: .25; transform: translateY(100%); }
 .no-js .cities-list { height: auto; }
 
-/* ===== Méthode ===== */
-.method { padding: clamp(80px, 10vw, 130px) 0; }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.card p { font-size: 14px; color: var(--muted); margin-top: 16px; padding-right: 10px; }
-.card-visual {
-  aspect-ratio: 1 / 1.2; border-radius: var(--r-md); padding: 22px; display: grid; place-items: center; overflow: hidden;
-  background: linear-gradient(160deg, #e7e6e3, #b8bcc4);
-}
-.v-search { background: linear-gradient(160deg, #dfe3df, #9aa79f); }
-.v-brief { background: linear-gradient(160deg, #e3dfdc, #a6a2ad); }
-.mock { width: 100%; background: rgba(255,255,255,.9); backdrop-filter: blur(10px); border-radius: var(--r-md); padding: 14px; box-shadow: 0 18px 40px rgba(0,0,0,.12); font-size: 12px; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
-.card:hover .mock { transform: translateY(-6px); }
-.mock-head { display: flex; gap: 10px; align-items: center; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid var(--line); }
-.av { width: 30px; height: 30px; border-radius: 50%; background: var(--dark); color: #fff; display: grid; place-items: center; font-weight: 500; font-size: 13px; flex: none; }
-.mock-head b, .result b { display: block; font-weight: 500; color: var(--ink); }
-.mock-head small, .result small { color: var(--muted); font-size: 10.5px; }
-.msg { max-width: 82%; padding: 8px 12px; border-radius: 10px; margin-top: 6px; line-height: 1.35; }
-.msg.in { background: #f0f0f2; }
-.msg.out { background: var(--dark); color: #fff; margin-left: auto; }
-.search { background: #f0f0f2; border-radius: var(--r-sm); padding: 8px 14px; margin-bottom: 10px; color: var(--ink); }
-.search::before { content: "⌕  "; color: var(--muted); }
-.result { display: flex; gap: 10px; align-items: center; padding: 8px; border-radius: 10px; opacity: .45; }
-.result.first { opacity: 1; background: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.08); }
-.rank { width: 22px; height: 22px; border-radius: 50%; background: #f0f0f2; display: grid; place-items: center; font-size: 11px; flex: none; }
-.result.first .rank { background: var(--dark); color: #fff; }
-.brief-title { display: block; font-weight: 500; font-size: 13px; color: var(--ink); margin-bottom: 8px; }
-.mock dl div { display: flex; justify-content: space-between; padding: 8px 0; border-top: 1px solid var(--line); }
-.mock dt { color: var(--muted); }
-.mock dd { color: var(--ink); font-weight: 500; }
-
 /* ===== Options sur mesure ===== */
 .options { padding: clamp(60px, 8vw, 110px) 0 clamp(70px, 9vw, 120px); }
 .options .kicker { margin-bottom: 8px; }
