@@ -15,7 +15,7 @@
   <script>
     // Si le navigateur affiche une ancienne version gardée en cache, on recharge la dernière.
     (function () {
-      var V = "24";
+      var V = "25";
       fetch("version.txt?t=" + Date.now(), { cache: "no-store" })
         .then(function (r) { return r.text(); })
         .then(function (remote) {
@@ -28,7 +28,7 @@
         .catch(function () {});
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=24" />
+  <link rel="stylesheet" href="styles.css?v=25" />
 </head>
 <body>
 
@@ -175,29 +175,36 @@
       </div>
     </section>
 
-    <!-- ===== OPTIONS SUR MESURE ===== -->
+    <!-- ===== OPTIONS SUR MESURE + PANIER ===== -->
     <section class="options container" id="options">
       <h2 class="kicker">Des options sur mesure</h2>
-      <p class="options-lead">Ajoutez à votre site les outils qui vous font gagner du temps.</p>
+      <p class="options-lead">Cochez ce qui vous intéresse, votre sélection s'ajoute au panier.</p>
 
-      <article class="option">
-        <div class="option-text">
-          <p class="option-num">Option 1</p>
-          <h3 class="option-title">Réponse automatique aux demandes</h3>
-          <p>Dès qu'un client remplit le formulaire, il reçoit tout de suite un message personnalisé à votre nom, par email ou par SMS. Il sait que sa demande est bien arrivée, même si vous êtes sur un chantier. Et vous, vous êtes prévenu en même temps, avec son numéro pour le rappeler en un geste.</p>
-          <ul class="option-list">
-            <li><strong>Le client est rassuré</strong> : il a une réponse en quelques secondes, jour et nuit, et ne va pas voir ailleurs.</li>
-            <li><strong>Vous rappelez directement</strong> : la notification contient son nom, son besoin et un bouton pour l'appeler.</li>
-            <li><strong>Une image pro</strong> : le message est écrit à votre nom, avec le prénom du client.</li>
-          </ul>
-          <div class="option-stats">
-            <div><strong>×7</strong><span>plus de chances de décrocher le client quand on le recontacte dans l'heure</span></div>
-            <div><strong>42 h</strong><span>c'est le délai moyen de réponse des entreprises à une demande en ligne</span></div>
-            <div><strong>23 %</strong><span>des entreprises ne répondent jamais</span></div>
+      <div class="opt-layout">
+        <div class="opt-grid" id="opt-grid"><!-- rempli par script.js à partir de la liste OPTIONS --></div>
+
+        <aside class="cart" id="cart" aria-live="polite">
+          <p class="cart-title">Votre sélection</p>
+          <div class="cart-base">
+            <span>Site sur mesure</span><span>Sur devis</span>
           </div>
-          <p class="option-source">Source : « The Short Life of Online Sales Leads », Harvard Business Review, 2011.</p>
-        </div>
-        <div class="option-visual" aria-hidden="true">
+          <ul class="cart-items" id="cart-items"></ul>
+          <p class="cart-empty" id="cart-empty">Aucune option pour l'instant.</p>
+          <div class="cart-totals">
+            <div><span>Options (une fois)</span><strong id="cart-once">0 €</strong></div>
+            <div><span>Options (par mois)</span><strong id="cart-month">0 €</strong></div>
+          </div>
+          <button type="button" class="pill pill-dark cart-cta" id="cart-cta">Demander un devis avec cette sélection <span class="arr">↗</span></button>
+          <p class="cart-note">Prix indicatifs hors taxes, confirmés dans le devis.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Démo de la réponse automatique (fenêtre) -->
+    <dialog class="demo" id="demo-autoreply">
+      <button type="button" class="demo-close" aria-label="Fermer">✕</button>
+      <p class="demo-title">Réponse automatique : comment ça marche</p>
+      <div class="option-visual" aria-hidden="true">
           <div class="ar-stage">
             <div class="ar-form">
               <p class="ar-form-title">Demande de devis</p>
@@ -219,9 +226,9 @@
               </div>
             </div>
           </div>
-        </div>
-      </article>
-    </section>
+      </div>
+      <p class="demo-source">Les entreprises qui recontactent un prospect dans l'heure ont près de 7 fois plus de chances de concrétiser (Harvard Business Review, 2011).</p>
+    </dialog>
 
     <!-- ===== TARIFS ===== -->
     <section class="pricing container" id="tarifs">
@@ -310,6 +317,6 @@
   <!-- Bouton flottant -->
   <a href="#contact" class="pill pill-dark float-cta">Planifier un appel <span class="arr">↗</span></a>
 
-  <script src="script.js?v=24"></script>
+  <script src="script.js?v=25"></script>
 </body>
 </html>

@@ -104,7 +104,7 @@ const sectionObserver = new IntersectionObserver(
 document.querySelectorAll('#realisations, #options, #tarifs, #faq').forEach((s) => sectionObserver.observe(s));
 
 // ===== Apparitions douces =====
-document.querySelectorAll('.offer, .option').forEach((el) => el.classList.add('fade'));
+document.querySelectorAll('.offer').forEach((el) => el.classList.add('fade'));
 const fadeObserver = new IntersectionObserver(
   (entries) => entries.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
@@ -113,7 +113,89 @@ const fadeObserver = new IntersectionObserver(
 );
 document.querySelectorAll('.fade').forEach((el) => fadeObserver.observe(el));
 
-// ===== Option 1 : démo de la réponse automatique (tourne en boucle quand elle est visible) =====
+// ===== Options sur mesure + panier =====
+// ⚠️ Prix indicatifs à ajuster. unit: "once" = payé une fois, "month" = par mois.
+const OPTIONS = [
+  { id: 'autoreply', title: 'Réponse automatique aux demandes', desc: 'Le client reçoit un message à votre nom dès qu\'il remplit le formulaire, et vous êtes prévenu avec son numéro pour le rappeler.', points: ['Email ou SMS', 'Bouton « Rappeler »', 'Jour et nuit'], price: 15, unit: 'month', stat: '×7 plus de chances en rappelant dans l\'heure', demo: 'demo-autoreply' },
+  { id: 'rdv', title: 'Prise de rendez-vous en ligne', desc: 'Vos clients réservent un créneau directement sur le site, ajouté à votre agenda.', points: ['Rappels automatiques', 'Synchro agenda'], price: 150, unit: 'once' },
+  { id: 'avis', title: 'Avis Google automatiques', desc: 'Après une prestation, le client reçoit une invitation à laisser un avis sur votre fiche Google.', points: ['Plus d\'avis', 'Meilleur classement local'], price: 10, unit: 'month' },
+  { id: 'devis', title: 'Devis en ligne guidé', desc: 'Un formulaire en quelques étapes qui qualifie la demande avant même votre appel.', points: ['Questions sur mesure', 'Photos jointes'], price: 250, unit: 'once' },
+  { id: 'galerie', title: 'Galerie avant / après', desc: 'Montrez vos réalisations avec un curseur avant / après qui met en valeur votre travail.', points: ['Ajout facile de photos'], price: 100, unit: 'once' },
+  { id: 'appel', title: 'Bouton d\'appel et WhatsApp', desc: 'Toujours visible sur téléphone : vos clients vous joignent en un geste.', points: ['Sur mobile', 'Suivi des clics'], price: 50, unit: 'once' },
+  { id: 'page', title: 'Page supplémentaire', desc: 'Une page de plus pour un service, une zone d\'intervention ou une offre.', points: ['Optimisée pour Google'], price: 80, unit: 'once' },
+  { id: 'entretien', title: 'Entretien du site', desc: 'Hébergement, nom de domaine, mises à jour, sécurité et modifications.', points: ['Sans prise de tête'], price: 100, unit: 'month' },
+];
+
+const optGrid = document.getElementById('opt-grid');
+const cartItems = document.getElementById('cart-items');
+const cartEmpty = document.getElementById('cart-empty');
+const euro = (n) => n.toLocaleString('fr-FR') + ' €';
+const priceLabel = (o) => euro(o.price) + (o.unit === 'month' ? ' / mois' : '');
+const selected = new Set();
+
+optGrid.innerHTML = OPTIONS.map((o) => `
+  <label class="opt" data-id="${o.id}">
+    <input type="checkbox" value="${o.id}" />
+    <div class="opt-head"><span class="opt-title">${o.title}</span><span class="opt-box" aria-hidden="true"></span></div>
+    <p class="opt-desc">${o.desc}</p>
+    ${o.stat ? `<span class="opt-stat">${o.stat}</span>` : ''}
+    <ul class="opt-points">${o.points.map((p) => `<li>${p}</li>`).join('')}</ul>
+    <div class="opt-foot">
+      <span class="opt-price">${euro(o.price)}${o.unit === 'month' ? ' <small>/ mois</small>' : ' <small>une fois</small>'}</span>
+      ${o.demo ? `<button type="button" class="opt-demo" data-demo="${o.demo}">Voir la démo</button>` : ''}
+    </div>
+  </label>`).join('');
+
+function renderCart() {
+  const list = OPTIONS.filter((o) => selected.has(o.id));
+  cartItems.innerHTML = list.map((o) => `<li><span>${o.title}</span><span>${priceLabel(o)}<button type="button" data-remove="${o.id}" aria-label="Retirer ${o.title}">✕</button></span></li>`).join('');
+  cartEmpty.hidden = list.length > 0;
+  document.getElementById('cart-once').textContent = euro(list.filter((o) => o.unit === 'once').reduce((t, o) => t + o.price, 0));
+  document.getElementById('cart-month').textContent = euro(list.filter((o) => o.unit === 'month').reduce((t, o) => t + o.price, 0)) + ' / mois';
+  optGrid.querySelectorAll('.opt').forEach((card) => {
+    const on = selected.has(card.dataset.id);
+    card.classList.toggle('is-on', on);
+    card.querySelector('input').checked = on;
+  });
+  try { localStorage.setItem('selection', JSON.stringify([...selected])); } catch (e) {}
+}
+optGrid.addEventListener('change', (e) => {
+  const id = e.target.value;
+  e.target.checked ? selected.add(id) : selected.delete(id);
+  renderCart();
+});
+cartItems.addEventListener('click', (e) => {
+  const id = e.target.dataset.remove;
+  if (id) { selected.delete(id); renderCart(); }
+});
+try { JSON.parse(localStorage.getItem('selection') || '[]').forEach((id) => selected.add(id)); } catch (e) {}
+renderCart();
+
+// Le panier pré-remplit le formulaire de contact
+document.getElementById('cart-cta').addEventListener('click', () => {
+  const list = OPTIONS.filter((o) => selected.has(o.id));
+  const msg = document.getElementById('f-message');
+  const lines = list.length
+    ? 'Bonjour, je suis intéressé par un site sur mesure avec les options suivantes :\n' + list.map((o) => '- ' + o.title + ' (' + priceLabel(o) + ')').join('\n')
+    : 'Bonjour, je suis intéressé par un site sur mesure.';
+  msg.value = lines + '\n\nMon activité : ';
+  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => { msg.focus(); msg.setSelectionRange(msg.value.length, msg.value.length); }, 700);
+});
+
+// Fenêtres de démo
+optGrid.addEventListener('click', (e) => {
+  const btn = e.target.closest('.opt-demo');
+  if (!btn) return;
+  e.preventDefault();
+  document.getElementById(btn.dataset.demo).showModal();
+});
+document.querySelectorAll('dialog.demo').forEach((d) => {
+  d.querySelector('.demo-close').addEventListener('click', () => d.close());
+  d.addEventListener('click', (e) => { if (e.target === d) d.close(); });
+});
+
+// ===== Démo de la réponse automatique (tourne en boucle quand elle est visible) =====
 const arStage = document.querySelector('.ar-stage');
 const arFields = arStage.querySelectorAll('.ar-type');
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
