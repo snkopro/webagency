@@ -15,7 +15,7 @@
   <script>
     // Si le navigateur affiche une ancienne version gardée en cache, on recharge la dernière.
     (function () {
-      var V = "25";
+      var V = "26";
       fetch("version.txt?t=" + Date.now(), { cache: "no-store" })
         .then(function (r) { return r.text(); })
         .then(function (remote) {
@@ -28,7 +28,7 @@
         .catch(function () {});
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=25" />
+  <link rel="stylesheet" href="styles.css?v=26" />
 </head>
 <body>
 
@@ -178,7 +178,7 @@
     <!-- ===== OPTIONS SUR MESURE + PANIER ===== -->
     <section class="options container" id="options">
       <h2 class="kicker">Des options sur mesure</h2>
-      <p class="options-lead">Cochez ce qui vous intéresse, votre sélection s'ajoute au panier.</p>
+      <p class="options-lead">Les outils qui font vraiment la différence. Ajoutez ceux qui vous intéressent, ils sont payés une seule fois.</p>
 
       <div class="opt-layout">
         <div class="opt-grid" id="opt-grid"><!-- rempli par script.js à partir de la liste OPTIONS --></div>
@@ -191,11 +191,10 @@
           <ul class="cart-items" id="cart-items"></ul>
           <p class="cart-empty" id="cart-empty">Aucune option pour l'instant.</p>
           <div class="cart-totals">
-            <div><span>Options (une fois)</span><strong id="cart-once">0 €</strong></div>
-            <div><span>Options (par mois)</span><strong id="cart-month">0 €</strong></div>
+            <div><span>Total des options <em id="cart-count"></em></span><strong id="cart-total">0 €</strong></div>
           </div>
           <button type="button" class="pill pill-dark cart-cta" id="cart-cta">Demander un devis avec cette sélection <span class="arr">↗</span></button>
-          <p class="cart-note">Prix indicatifs hors taxes, confirmés dans le devis.</p>
+          <p class="cart-note">Options payées une seule fois. Prix hors taxes, confirmés dans le devis.</p>
         </aside>
       </div>
     </section>
@@ -317,6 +316,6 @@
   <!-- Bouton flottant -->
   <a href="#contact" class="pill pill-dark float-cta">Planifier un appel <span class="arr">↗</span></a>
 
-  <script src="script.js?v=25"></script>
+  <script src="script.js?v=26"></script>
 </body>
 </html>

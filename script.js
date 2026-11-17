@@ -114,34 +114,41 @@ const fadeObserver = new IntersectionObserver(
 document.querySelectorAll('.fade').forEach((el) => fadeObserver.observe(el));
 
 // ===== Options sur mesure + panier =====
-// ⚠️ Prix indicatifs à ajuster. unit: "once" = payé une fois, "month" = par mois.
+// Prix payés une seule fois. Modifier ici pour changer les prix affichés partout.
+const ICONS = {
+  reply: '<path d="M4 6h16v10H8l-4 4z"/><path d="M8 10h8M8 13h5"/>',
+  star: '<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/>',
+  calendar: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/><path d="M9 14l2 2 4-4"/>',
+  quote: '<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 15h5M10 18h3"/>',
+  shield: '<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/>',
+};
 const OPTIONS = [
-  { id: 'autoreply', title: 'Réponse automatique aux demandes', desc: 'Le client reçoit un message à votre nom dès qu\'il remplit le formulaire, et vous êtes prévenu avec son numéro pour le rappeler.', points: ['Email ou SMS', 'Bouton « Rappeler »', 'Jour et nuit'], price: 15, unit: 'month', stat: '×7 plus de chances en rappelant dans l\'heure', demo: 'demo-autoreply' },
-  { id: 'rdv', title: 'Prise de rendez-vous en ligne', desc: 'Vos clients réservent un créneau directement sur le site, ajouté à votre agenda.', points: ['Rappels automatiques', 'Synchro agenda'], price: 150, unit: 'once' },
-  { id: 'avis', title: 'Avis Google automatiques', desc: 'Après une prestation, le client reçoit une invitation à laisser un avis sur votre fiche Google.', points: ['Plus d\'avis', 'Meilleur classement local'], price: 10, unit: 'month' },
-  { id: 'devis', title: 'Devis en ligne guidé', desc: 'Un formulaire en quelques étapes qui qualifie la demande avant même votre appel.', points: ['Questions sur mesure', 'Photos jointes'], price: 250, unit: 'once' },
-  { id: 'galerie', title: 'Galerie avant / après', desc: 'Montrez vos réalisations avec un curseur avant / après qui met en valeur votre travail.', points: ['Ajout facile de photos'], price: 100, unit: 'once' },
-  { id: 'appel', title: 'Bouton d\'appel et WhatsApp', desc: 'Toujours visible sur téléphone : vos clients vous joignent en un geste.', points: ['Sur mobile', 'Suivi des clics'], price: 50, unit: 'once' },
-  { id: 'page', title: 'Page supplémentaire', desc: 'Une page de plus pour un service, une zone d\'intervention ou une offre.', points: ['Optimisée pour Google'], price: 80, unit: 'once' },
-  { id: 'entretien', title: 'Entretien du site', desc: 'Hébergement, nom de domaine, mises à jour, sécurité et modifications.', points: ['Sans prise de tête'], price: 100, unit: 'month' },
+  { id: 'autoreply', icon: 'reply', title: 'Relance automatique des demandes', desc: 'Dès qu\'un client remplit le formulaire, il reçoit un message à votre nom. Vous êtes prévenu avec son numéro pour le rappeler en un geste.', gain: '×7 plus de chances de décrocher le client en le rappelant dans l\'heure', price: 50, demo: 'demo-autoreply' },
+  { id: 'avis', icon: 'star', title: 'Demandes d\'avis Google automatiques', desc: 'Après une prestation, votre client reçoit une invitation à laisser un avis sur votre fiche Google.', gain: 'Plus d\'avis, donc plus de confiance et un meilleur classement local', price: 50 },
+  { id: 'rdv', icon: 'calendar', title: 'Prise de rendez-vous en ligne', desc: 'Vos clients choisissent un créneau directement sur le site, ajouté à votre agenda, avec rappel automatique.', gain: 'Moins d\'appels manqués, moins de rendez-vous oubliés', price: 100 },
+  { id: 'devis', icon: 'quote', title: 'Devis en ligne guidé', desc: 'Un formulaire en quelques étapes qui pose les bonnes questions et permet au client de joindre des photos.', gain: 'Des demandes déjà qualifiées avant même votre appel', price: 150 },
+  { id: 'entretien', icon: 'shield', title: 'Entretien du site', desc: 'Hébergement, mises à jour, sécurité, sauvegardes et petites modifications pendant un an.', gain: 'Un site toujours en ligne et à jour, sans vous en occuper', price: 150, note: '1 an' },
 ];
 
 const optGrid = document.getElementById('opt-grid');
 const cartItems = document.getElementById('cart-items');
 const cartEmpty = document.getElementById('cart-empty');
 const euro = (n) => n.toLocaleString('fr-FR') + ' €';
-const priceLabel = (o) => euro(o.price) + (o.unit === 'month' ? ' / mois' : '');
+const priceLabel = (o) => euro(o.price) + (o.note ? ' (' + o.note + ')' : '');
 const selected = new Set();
 
 optGrid.innerHTML = OPTIONS.map((o) => `
   <label class="opt" data-id="${o.id}">
     <input type="checkbox" value="${o.id}" />
-    <div class="opt-head"><span class="opt-title">${o.title}</span><span class="opt-box" aria-hidden="true"></span></div>
+    <div class="opt-top">
+      <span class="opt-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ICONS[o.icon]}</svg></span>
+      <span class="opt-price">${euro(o.price)}${o.note ? ` <small>/ ${o.note}</small>` : ''}</span>
+    </div>
+    <span class="opt-title">${o.title}</span>
     <p class="opt-desc">${o.desc}</p>
-    ${o.stat ? `<span class="opt-stat">${o.stat}</span>` : ''}
-    <ul class="opt-points">${o.points.map((p) => `<li>${p}</li>`).join('')}</ul>
+    <p class="opt-gain">${o.gain}</p>
     <div class="opt-foot">
-      <span class="opt-price">${euro(o.price)}${o.unit === 'month' ? ' <small>/ mois</small>' : ' <small>une fois</small>'}</span>
+      <span class="opt-toggle"><span class="t-add">Ajouter</span><span class="t-on">Ajouté</span></span>
       ${o.demo ? `<button type="button" class="opt-demo" data-demo="${o.demo}">Voir la démo</button>` : ''}
     </div>
   </label>`).join('');
@@ -150,8 +157,8 @@ function renderCart() {
   const list = OPTIONS.filter((o) => selected.has(o.id));
   cartItems.innerHTML = list.map((o) => `<li><span>${o.title}</span><span>${priceLabel(o)}<button type="button" data-remove="${o.id}" aria-label="Retirer ${o.title}">✕</button></span></li>`).join('');
   cartEmpty.hidden = list.length > 0;
-  document.getElementById('cart-once').textContent = euro(list.filter((o) => o.unit === 'once').reduce((t, o) => t + o.price, 0));
-  document.getElementById('cart-month').textContent = euro(list.filter((o) => o.unit === 'month').reduce((t, o) => t + o.price, 0)) + ' / mois';
+  document.getElementById('cart-total').textContent = euro(list.reduce((t, o) => t + o.price, 0));
+  document.getElementById('cart-count').textContent = list.length ? `${list.length} option${list.length > 1 ? 's' : ''}` : '';
   optGrid.querySelectorAll('.opt').forEach((card) => {
     const on = selected.has(card.dataset.id);
     card.classList.toggle('is-on', on);
@@ -168,7 +175,7 @@ cartItems.addEventListener('click', (e) => {
   const id = e.target.dataset.remove;
   if (id) { selected.delete(id); renderCart(); }
 });
-try { JSON.parse(localStorage.getItem('selection') || '[]').forEach((id) => selected.add(id)); } catch (e) {}
+try { JSON.parse(localStorage.getItem('selection') || '[]').forEach((id) => { if (OPTIONS.some((o) => o.id === id)) selected.add(id); }); } catch (e) {}
 renderCart();
 
 // Le panier pré-remplit le formulaire de contact
