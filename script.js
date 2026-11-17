@@ -109,7 +109,7 @@ const fadeObserver = new IntersectionObserver(
   (entries) => entries.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
   }),
-  { threshold: 0.15 }
+  { threshold: 0, rootMargin: '0px 0px -10% 0px' }
 );
 document.querySelectorAll('.fade').forEach((el) => fadeObserver.observe(el));
 
