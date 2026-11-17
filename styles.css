@@ -215,6 +215,60 @@ strong { font-weight: 500; color: var(--ink); }
 .mock dt { color: var(--muted); }
 .mock dd { color: var(--ink); font-weight: 500; }
 
+/* ===== Options sur mesure ===== */
+.options { padding: clamp(60px, 8vw, 110px) 0 clamp(70px, 9vw, 120px); }
+.options .kicker { margin-bottom: 8px; }
+.options-lead { text-align: center; color: var(--muted); margin-bottom: 36px; }
+.option { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(24px, 4vw, 56px); align-items: center; background: var(--surface); border-radius: var(--r-lg); padding: clamp(24px, 4vw, 48px); box-shadow: 0 30px 60px rgba(0,0,0,.06); }
+.option-num { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.option-title { font-family: var(--font-title); font-weight: 500; font-size: clamp(28px, 3vw, 40px); line-height: 1.08; letter-spacing: -.04em; color: var(--ink); margin-bottom: 16px; }
+.option-text > p:not(.option-num) { color: var(--muted); font-size: 15.5px; }
+.option-list { list-style: none; margin-top: 22px; }
+.option-list li { font-size: 14.5px; padding: 10px 0 10px 26px; border-top: 1px solid var(--line); position: relative; color: var(--text); }
+.option-list li::before { content: ""; position: absolute; left: 2px; top: 17px; width: 10px; height: 5px; border-left: 1.5px solid #3fbf6a; border-bottom: 1.5px solid #3fbf6a; transform: rotate(-45deg); }
+
+.option-visual { border-radius: var(--r-md); background: linear-gradient(160deg, #e9e8e5, #b9bdc6); aspect-ratio: 1 / .95; position: relative; overflow: hidden; display: grid; place-items: center; }
+.ar-stage { position: relative; width: 88%; height: 82%; }
+.ar-form {
+  position: absolute; left: 0; top: 10%; width: 56%; background: rgba(255,255,255,.95); border-radius: 16px; padding: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.12); font-size: 12px; transition: transform .6s cubic-bezier(.2,.7,.2,1), opacity .6s;
+}
+.ar-form-title { font-family: var(--font-title); font-weight: 500; font-size: 15px; color: var(--ink); margin-bottom: 10px; }
+.ar-field { background: #f2f2f4; border-radius: 10px; padding: 7px 10px; margin-bottom: 8px; display: flex; flex-direction: column; }
+.ar-field span { font-size: 10px; color: var(--muted); }
+.ar-field b { font-weight: 500; color: var(--ink); min-height: 1.4em; }
+.ar-type::after { content: "|"; font-weight: 400; color: var(--muted); animation: blink 1s steps(1) infinite; opacity: 0; }
+.ar-type.typing::after { opacity: 1; }
+@keyframes blink { 50% { color: transparent; } }
+.ar-send { margin-top: 4px; background: var(--dark); color: #fff; border-radius: 999px; padding: 8px; text-align: center; font-weight: 500; position: relative; transition: background .3s; }
+.ar-check { position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; opacity: 0; transition: opacity .3s; }
+.ar-stage.sent .ar-send { background: #3fbf6a; }
+.ar-stage.sent .ar-send span { opacity: 0; }
+.ar-stage.sent .ar-check { opacity: 1; }
+
+.ar-phone {
+  position: absolute; right: 0; top: 0; width: 50%; height: 100%; border-radius: 30px; background: #111214; padding: 34px 10px 10px;
+  box-shadow: 0 30px 60px rgba(0,0,0,.25); display: flex; flex-direction: column; gap: 8px; border: 5px solid #2a2b2f;
+}
+.ar-notch { position: absolute; top: 9px; left: 50%; width: 34%; height: 14px; border-radius: 10px; background: #000; transform: translateX(-50%); }
+.ar-time { text-align: center; color: rgba(255,255,255,.85); font-family: var(--font-title); font-size: 26px; letter-spacing: -.03em; margin: 6px 0 10px; }
+.ar-msg {
+  background: rgba(255,255,255,.92); border-radius: 14px; padding: 9px 11px; font-size: 11px; line-height: 1.35; color: var(--ink);
+  opacity: 0; transform: translateY(-14px) scale(.96); transition: opacity .5s, transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.ar-from { font-weight: 600; font-size: 11px; margin-bottom: 2px; }
+.ar-notif { background: rgba(255,255,255,.75); }
+.ar-stage.msg1 .ar-msg:not(.ar-notif) { opacity: 1; transform: none; }
+.ar-stage.msg2 .ar-notif { opacity: 1; transform: none; }
+.no-js .ar-msg { opacity: 1; transform: none; }
+
+@media (max-width: 860px) {
+  .option { grid-template-columns: 1fr; }
+  .option-visual { aspect-ratio: 1 / 1.05; }
+  .ar-form { width: 62%; font-size: 11px; }
+  .ar-phone { width: 52%; }
+}
+
 /* ===== Tarifs ===== */
 .pricing { padding: clamp(40px, 6vw, 80px) 0 clamp(80px, 10vw, 130px); }
 .giant-inline { margin-bottom: calc(clamp(120px, 26vw, 380px) * -0.42); }

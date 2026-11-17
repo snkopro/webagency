@@ -101,10 +101,10 @@ const sectionObserver = new IntersectionObserver(
   }),
   { rootMargin: '-45% 0px -50% 0px' }
 );
-document.querySelectorAll('#realisations, #methode, #tarifs, #faq').forEach((s) => sectionObserver.observe(s));
+document.querySelectorAll('#realisations, #methode, #options, #tarifs, #faq').forEach((s) => sectionObserver.observe(s));
 
 // ===== Apparitions douces =====
-document.querySelectorAll('.card, .offer').forEach((el) => el.classList.add('fade'));
+document.querySelectorAll('.card, .offer, .option').forEach((el) => el.classList.add('fade'));
 const fadeObserver = new IntersectionObserver(
   (entries) => entries.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
@@ -112,6 +112,45 @@ const fadeObserver = new IntersectionObserver(
   { threshold: 0.15 }
 );
 document.querySelectorAll('.fade').forEach((el) => fadeObserver.observe(el));
+
+// ===== Option 1 : démo de la réponse automatique (tourne en boucle quand elle est visible) =====
+const arStage = document.querySelector('.ar-stage');
+const arFields = arStage.querySelectorAll('.ar-type');
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+let arRunning = false;
+async function typeInto(el) {
+  el.textContent = '';
+  el.classList.add('typing');
+  for (const ch of el.dataset.text) { el.textContent += ch; await wait(55); }
+  el.classList.remove('typing');
+}
+async function runAutoReply() {
+  if (arRunning) return;
+  arRunning = true;
+  while (arStage.dataset.visible === '1') {
+    arStage.className = 'ar-stage';
+    arFields.forEach((f) => (f.textContent = ''));
+    await wait(600);
+    for (const f of arFields) { await typeInto(f); await wait(250); }
+    await wait(300);
+    arStage.classList.add('sent');
+    await wait(900);
+    arStage.classList.add('msg1');
+    await wait(1400);
+    arStage.classList.add('msg2');
+    await wait(3500);
+  }
+  arRunning = false;
+}
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  arFields.forEach((f) => (f.textContent = f.dataset.text));
+  arStage.classList.add('sent', 'msg1', 'msg2');
+} else {
+  new IntersectionObserver((entries) => entries.forEach((e) => {
+    arStage.dataset.visible = e.isIntersecting ? '1' : '0';
+    if (e.isIntersecting) runAutoReply();
+  }), { threshold: 0.35 }).observe(arStage);
+}
 
 // ===== FAQ : une seule réponse ouverte =====
 const faqItems = document.querySelectorAll('.faq details');
