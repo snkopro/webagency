@@ -9,6 +9,22 @@ function setMenu(open) {
 burger.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
 mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
+// ===== Titre de l'accueil : remplit toute la largeur =====
+const heroTitle = document.querySelector('.hero-title');
+const heroEl = document.querySelector('.hero');
+function fitHero() {
+  if (window.innerWidth <= 860) { heroEl.style.removeProperty('--hero-size'); return; }
+  heroEl.style.setProperty('--hero-size', '100px');
+  const range = document.createRange();
+  range.selectNodeContents(heroTitle);
+  const ratio = heroEl.clientWidth / range.getBoundingClientRect().width;
+  const size = Math.min(100 * ratio * 0.99, window.innerHeight * 0.24);
+  heroEl.style.setProperty('--hero-size', size.toFixed(1) + 'px');
+}
+fitHero();
+document.fonts.ready.then(fitHero);
+window.addEventListener('resize', fitHero);
+
 // ===== Mot qui change dans le titre =====
 const words = document.querySelectorAll('.rot-word');
 let wi = 0;
