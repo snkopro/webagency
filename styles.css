@@ -196,12 +196,12 @@ strong { font-weight: 500; color: var(--ink); }
 .cities { background: var(--band); padding: clamp(80px, 10vw, 130px) var(--pad); overflow: hidden; }
 .cities-inner { width: min(1100px, 100%); margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: .3em; font-family: var(--font-title); font-weight: 500; font-size: clamp(30px, 4.6vw, 56px); letter-spacing: -.04em; color: var(--ink); }
 .cities-lead { white-space: nowrap; }
-.cities-list { position: relative; height: 1.15em; line-height: 1.15; overflow: visible; }
+.cities-list { position: relative; display: grid; height: 1.15em; line-height: 1.15; overflow: visible; }
 .cities-list span {
   display: block; height: 1.15em; white-space: nowrap;
   background: var(--grad-soft); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.js .cities-list span { position: absolute; left: 0; top: 0; opacity: 0; transform: translateY(100%); transition: transform .7s cubic-bezier(.6,0,.2,1), opacity .7s; }
+.js .cities-list span { grid-area: 1 / 1; opacity: 0; transform: translateY(100%); transition: transform .7s cubic-bezier(.6,0,.2,1), opacity .7s; }
 .js .cities-list span.is-prev { opacity: .35; transform: translateY(-100%); }
 .js .cities-list span.is-active { opacity: 1; transform: none; }
 .js .cities-list span.is-next { opacity: .35; transform: translateY(100%); }
@@ -396,7 +396,8 @@ strong { font-weight: 500; color: var(--ink); }
   .hs-giant { font-size: 150px; }
   .cities-inner { flex-direction: column; gap: 6px; text-align: center; }
   .cities-list { width: 100%; }
-  .js .cities-list span { left: 50%; translate: -50% 0; }
+  .js .cities-list span.is-prev, .js .cities-list span.is-next { opacity: 0; }
+  .cities-list { justify-items: center; }
   .card-visual { aspect-ratio: 1 / .9; }
   .form { grid-template-columns: 1fr; }
 }
