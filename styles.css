@@ -128,6 +128,83 @@ strong { font-weight: 500; color: var(--ink); }
 .reveal-text span { color: rgba(10,10,10,.14); transition: color .4s ease; }
 .reveal-text span.on, .no-js .reveal-text span { color: var(--ink); }
 
+/* ===== Avant / après ===== */
+.transfo { position: relative; }
+.js .transfo { height: 260vh; }
+.tf-sticky { padding: 80px 0; }
+.js .tf-sticky { position: sticky; top: 0; height: 100vh; padding: 90px 0 30px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+.tf-head { text-align: center; }
+.tf-title { font-family: var(--font-title); font-weight: 500; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.08; letter-spacing: -.04em; color: var(--ink); }
+.tf-sub { color: var(--muted); font-size: 14px; margin-top: 8px; }
+.tf-stage { position: relative; width: min(940px, 100% - 2 * var(--pad)); margin: 0 auto; }
+.tf-browser { border-radius: 18px; overflow: hidden; background: #fff; box-shadow: 0 40px 80px rgba(0,0,0,.14); }
+.tf-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: #f0f0f2; }
+.tf-bar i { width: 10px; height: 10px; border-radius: 50%; background: #d4d4d8; }
+.tf-url { margin-left: 12px; font-size: 12px; color: var(--muted); background: #fff; padding: 3px 14px; border-radius: 999px; }
+.tf-screen { position: relative; aspect-ratio: 16 / 9.2; overflow: hidden; }
+.tf-before, .tf-after { position: absolute; inset: 0; }
+
+/* --- l'ancien site, volontairement daté --- */
+.tf-before { background: #dfe6ee; font-family: "Times New Roman", Times, serif; color: #222; font-size: clamp(9px, 1.05vw, 13px); }
+.old-top { display: flex; justify-content: space-between; align-items: center; padding: 2% 3%; background: linear-gradient(#2a5caa, #16397a); color: #fff; }
+.old-logo { font-family: "Comic Sans MS", "Chalkboard SE", cursive; font-weight: bold; font-size: 2.1em; color: #ffe14d; text-shadow: 2px 2px 0 #b3261e; letter-spacing: .02em; }
+.old-tel { font-weight: bold; }
+.old-nav { display: flex; gap: 4px; padding: 4px 3%; background: #c8d3e0; }
+.old-nav span { padding: 3px 10px; background: linear-gradient(#fff, #b8c6d8); border: 1px solid #7a8ca6; color: #0b2f8a; text-decoration: underline; }
+.old-body { display: grid; grid-template-columns: 24% 1fr; gap: 2%; padding: 2% 3%; }
+.old-side { background: #f4f4dc; border: 2px ridge #c2b97a; padding: 8%; }
+.old-side ul { margin: 6px 0 10px 18px; color: #0b2f8a; text-decoration: underline; }
+.old-counter { text-align: center; background: #000; color: #3f3; font-family: "Courier New", monospace; padding: 6px; }
+.old-main { text-align: center; }
+.old-welcome { font-family: "Comic Sans MS", cursive; font-size: 1.6em; color: #c41e1e; margin-bottom: 8px; }
+.old-photo { width: 34%; aspect-ratio: 4/3; margin: 0 auto 10px; background: #b9b9b9; border: 3px double #555; display: grid; place-items: center; color: #555; font-style: italic; }
+.old-main p { line-height: 1.35; }
+.old-update { margin-top: 10px; font-size: .85em; color: #777; font-style: italic; }
+
+/* --- le nouveau site --- */
+.tf-after {
+  background: #f6f5f2; font-family: var(--font-body); color: var(--ink); font-size: clamp(9px, 1.05vw, 13px);
+  clip-path: inset(0 0 0 var(--wipe, 100%));
+}
+.no-js .tf-after { clip-path: inset(0 0 0 50%); }
+.new-nav { display: flex; align-items: center; justify-content: space-between; padding: 3% 5%; }
+.new-nav b { font-family: var(--font-title); font-size: 1.7em; letter-spacing: -.04em; }
+.new-nav b span { color: #c2552d; }
+.new-links { display: flex; gap: 2.4em; }
+.new-links i { font-style: normal; opacity: .7; }
+.new-cta { background: var(--ink); color: #fff; padding: .7em 1.4em; border-radius: 999px; font-weight: 500; }
+.new-hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 5%; padding: 1% 5% 0; align-items: center; transform: translateX(var(--shift, 0px)); }
+.new-tag { color: #c2552d; font-weight: 500; margin-bottom: .6em; }
+.new-h { font-family: var(--font-title); font-weight: 500; font-size: 3.1em; line-height: 1.02; letter-spacing: -.045em; }
+.new-p { margin-top: 1em; opacity: .65; }
+.new-btns { display: flex; gap: .8em; margin-top: 1.6em; }
+.nb-dark, .nb-light { padding: .8em 1.5em; border-radius: 999px; font-weight: 500; }
+.nb-dark { background: #c2552d; color: #fff; }
+.nb-light { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+.new-photo { position: relative; aspect-ratio: 4 / 4.2; border-radius: 1.6em; background: linear-gradient(150deg, #a9b8c6, #5d7088 55%, #34404d); transform: translateX(calc(var(--shift, 0px) * 1.6)); }
+.new-badge { position: absolute; left: -8%; bottom: 10%; background: #fff; padding: .7em 1.2em; border-radius: 1em; font-weight: 500; box-shadow: 0 10px 25px rgba(0,0,0,.12); }
+.new-cards { display: flex; gap: 1.2em; padding: 3.5% 5%; }
+.new-cards span { flex: 1; background: #fff; border-radius: 1em; padding: 1.1em 1.3em; font-weight: 500; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+
+/* --- la ligne de balayage --- */
+.tf-line { position: absolute; top: 0; bottom: 0; left: var(--wipe, 100%); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 0 30px rgba(0,0,0,.25); }
+.no-js .tf-line { left: 50%; }
+.tf-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: #fff; display: grid; place-items: center; font-size: 16px; box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+.tf-label { position: absolute; top: -34px; font-size: 13px; font-weight: 500; padding: 4px 12px; border-radius: 999px; transition: opacity .3s, background .3s, color .3s; }
+.tf-l-before { left: 0; background: #fff; color: var(--muted); }
+.tf-l-after { right: 0; background: var(--dark); color: #fff; opacity: var(--after-on, 0); }
+
+@media (max-width: 860px) {
+  .tf-screen { aspect-ratio: 4 / 4.4; }
+  .tf-before, .tf-after { font-size: 9px; }
+  .old-body { grid-template-columns: 1fr; }
+  .old-side { display: none; }
+  .new-hero { grid-template-columns: 1fr; }
+  .new-photo { aspect-ratio: 16 / 8; }
+  .new-links { display: none; }
+  .new-h { font-size: 2.6em; }
+}
+
 /* ===== Pour qui ===== */
 .who { padding: clamp(80px, 10vw, 120px) 0 clamp(40px, 6vw, 80px); text-align: center; }
 .kicker { font-family: var(--font-title); font-weight: 500; font-size: clamp(22px, 2.4vw, 28.8px); letter-spacing: -.03em; color: rgba(29,29,31,.75); margin-bottom: 36px; text-align: center; }

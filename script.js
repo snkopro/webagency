@@ -76,12 +76,28 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   hs.classList.add('hs-off');
 }
 
+// ===== Avant / après : la ligne balaie de droite à gauche =====
+const tf = document.querySelector('.transfo');
+const tfStage = document.querySelector('.tf-stage');
+function updateTransfo() {
+  const r = tf.getBoundingClientRect();
+  const span = tf.offsetHeight - window.innerHeight;
+  // on garde un temps d'arrêt au début et à la fin pour bien voir l'avant et l'après
+  const raw = span > 0 ? -r.top / span : 0;
+  const p = Math.min(1, Math.max(0, (raw - 0.15) / 0.7));
+  const eased = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+  tfStage.style.setProperty('--wipe', (100 - eased * 100).toFixed(2) + '%');
+  tfStage.style.setProperty('--shift', ((1 - eased) * 40).toFixed(1) + 'px');
+  tfStage.style.setProperty('--after-on', p > 0.5 ? 1 : 0);
+}
+
 // ===== Bouton flottant + lien actif =====
 const floatCta = document.querySelector('.float-cta');
 const hero = document.querySelector('.hero');
 const contact = document.getElementById('contact');
 function onScroll() {
   updateReveal();
+  updateTransfo();
   if (hsDistance) updateHscroll();
   const pastHero = hero.getBoundingClientRect().bottom < 0;
   const atContact = contact.getBoundingClientRect().top < window.innerHeight * 0.8;
