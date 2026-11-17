@@ -140,7 +140,7 @@ strong { font-weight: 500; color: var(--ink); }
 .no-js .hs-track { overflow-x: auto; padding-block: 80px; }
 
 .hs-intro { position: relative; flex: 0 0 auto; width: min(600px, 84vw); }
-.hs-giant { position: relative; left: -.05em; font-size: clamp(100px, 12.5vw, 190px); line-height: .9; padding-bottom: .06em; margin-bottom: 18px; opacity: 1; background: linear-gradient(180deg, #9aa3b6 0%, #b99d97 55%, #d49674 100%); -webkit-background-clip: text; background-clip: text; }
+.hs-giant { position: absolute; left: -.04em; top: 50%; transform: translateY(-62%); z-index: 0; opacity: .7; }
 .hs-title { position: relative; font-family: var(--font-title); font-weight: 500; font-size: clamp(36px, 4.6vw, 58px); line-height: 1.05; letter-spacing: -.04em; color: var(--ink); }
 .hs-sub { position: relative; margin-top: 18px; color: var(--muted); font-size: 15px; display: flex; align-items: center; gap: 10px; }
 .hs-sub::after { content: ""; width: 40px; height: 1px; background: currentColor; animation: nudge 1.6s ease-in-out infinite; }
@@ -363,7 +363,7 @@ strong { font-weight: 500; color: var(--ink); }
   .cards, .offers, .contact-grid { grid-template-columns: 1fr; }
   .hs-card { width: 78vw; }
   .hs-card:nth-of-type(even), .hs-card:nth-of-type(odd) { margin: 0; }
-  .hs-giant { font-size: 96px; }
+  .hs-giant { font-size: 150px; }
   .cities-inner { flex-direction: column; gap: 6px; text-align: center; }
   .cities-list { width: 100%; }
   .js .cities-list span.is-prev, .js .cities-list span.is-next { opacity: 0; }
