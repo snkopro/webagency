@@ -201,10 +201,10 @@ strong { font-weight: 500; color: var(--ink); }
   display: block; height: 1.15em; white-space: nowrap;
   background: var(--grad-soft); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.js .cities-list span { grid-area: 1 / 1; opacity: 0; transform: translateY(100%); transition: transform .7s cubic-bezier(.6,0,.2,1), opacity .7s; }
-.js .cities-list span.is-prev { opacity: .35; transform: translateY(-100%); }
-.js .cities-list span.is-active { opacity: 1; transform: none; }
-.js .cities-list span.is-next { opacity: .35; transform: translateY(100%); }
+.js .cities-list span { grid-area: 1 / 1; opacity: 0; transform: translateY(100%); filter: blur(4px); transition: transform .7s cubic-bezier(.6,0,.2,1), opacity .7s, filter .7s; }
+.js .cities-list span.is-prev { opacity: .25; transform: translateY(-100%); }
+.js .cities-list span.is-active { opacity: 1; transform: none; filter: none; }
+.js .cities-list span.is-next { opacity: .25; transform: translateY(100%); }
 .no-js .cities-list { height: auto; }
 
 /* ===== Méthode ===== */
