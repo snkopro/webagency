@@ -335,6 +335,12 @@ strong { font-weight: 500; color: var(--ink); }
 .offer-dark .price small, .offer-dark .offer-lead { color: rgba(255,255,255,.55); }
 .offer-dark li { border-color: rgba(255,255,255,.1); }
 
+.price-sm { font-size: clamp(32px, 3.6vw, 44px); }
+.offer-options li { display: flex; justify-content: space-between; gap: 12px; padding-left: 0; }
+.offer-options li::before { display: none; }
+.offer-options b { font-weight: 500; white-space: nowrap; }
+.pricing-example { position: relative; text-align: center; color: var(--muted); font-size: 14.5px; margin-top: 22px; }
+
 /* ===== FAQ ===== */
 .faq { width: min(640px, 100% - 2 * var(--pad)); margin: 0 auto; padding-bottom: clamp(80px, 10vw, 130px); }
 .faq details { border-bottom: 1px solid var(--line); }

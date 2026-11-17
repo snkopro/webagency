@@ -179,6 +179,10 @@ cartItems.addEventListener('click', (e) => {
 try { JSON.parse(localStorage.getItem('selection') || '[]').forEach((id) => { if (OPTIONS.some((o) => o.id === id)) selected.add(id); }); } catch (e) {}
 renderCart();
 
+// La liste des options dans la section Tarifs suit les mêmes prix
+const offerOptions = document.getElementById('offer-options');
+if (offerOptions) offerOptions.innerHTML = OPTIONS.map((o) => `<li><span>${o.title}</span><b>${priceLabel(o).replace(' (', ' / ').replace(')', '')}</b></li>`).join('');
+
 // Le panier pré-remplit le formulaire de contact
 document.getElementById('cart-cta').addEventListener('click', () => {
   const list = OPTIONS.filter((o) => selected.has(o.id));
