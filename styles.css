@@ -407,3 +407,12 @@ strong { font-weight: 500; color: var(--ink); }
   .option-stats div { flex-direction: row; align-items: center; gap: 14px; }
   .option-stats strong { min-width: 64px; }
 }
+
+/* Métiers intégrés au hero */
+.hero-trades { margin-top: clamp(28px, 5vh, 48px); display: flex; align-items: center; gap: 24px; }
+.hero-trades-title { flex: none; font-size: 14px; color: var(--muted); }
+.hero-trades .trades { margin: 0; width: auto; flex: 1; min-width: 0; }
+@media (max-width: 860px) {
+  .hero-trades { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero-trades-title { text-align: center; }
+}
