@@ -15,7 +15,7 @@
   <script>
     // Si le navigateur affiche une ancienne version gardée en cache, on recharge la dernière.
     (function () {
-      var V = "28";
+      var V = "29";
       fetch("version.txt?t=" + Date.now(), { cache: "no-store" })
         .then(function (r) { return r.text(); })
         .then(function (remote) {
@@ -28,7 +28,7 @@
         .catch(function () {});
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=28" />
+  <link rel="stylesheet" href="styles.css?v=29" />
 </head>
 <body>
 
@@ -256,7 +256,7 @@
             <li><span>Demandes d'avis Google automatiques</span><b>100 €</b></li>
             <li><span>Prise de rendez-vous en ligne</span><b>100 €</b></li>
             <li><span>Devis en ligne guidé</span><b>150 €</b></li>
-            <li><span>Entretien du site</span><b>150 € / 1 an</b></li>
+            <li><span>Entretien du site</span><b>150 €</b></li>
           </ul>
           <a href="#options" class="pill pill-white">Composer mon site <span class="arr">↗</span></a>
         </article>
@@ -273,7 +273,7 @@
       <details><summary>Combien de temps faut-il&nbsp;?</summary><p>En général deux à quatre semaines entre le premier appel et la mise en ligne, selon la rapidité de nos échanges.</p></details>
       <details><summary>Je n'ai ni photos ni textes, c'est un problème&nbsp;?</summary><p>Non. Je vous aide à rédiger les textes et à choisir les visuels.</p></details>
       <details><summary>Qui est propriétaire du site&nbsp;?</summary><p>Vous. Le nom de domaine, le contenu et le site vous appartiennent.</p></details>
-      <details><summary>Et après la mise en ligne&nbsp;?</summary><p>Avec l'option entretien (150 € pour un an), je m'occupe de l'hébergement, des mises à jour, de la sécurité et de vos petites modifications.</p></details>
+      <details><summary>Et après la mise en ligne&nbsp;?</summary><p>Avec l'option entretien (150 €, payée une fois), je m'occupe de l'hébergement, des mises à jour, de la sécurité et de vos petites modifications.</p></details>
       <p class="faq-more">Une autre question&nbsp;? <a href="#contact">Écrivez-moi directement.</a></p>
     </section>
 
@@ -319,6 +319,6 @@
   <!-- Bouton flottant -->
   <a href="#contact" class="pill pill-dark float-cta">Planifier un appel <span class="arr">↗</span></a>
 
-  <script src="script.js?v=28"></script>
+  <script src="script.js?v=29"></script>
 </body>
 </html>

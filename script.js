@@ -128,7 +128,7 @@ const OPTIONS = [
   { id: 'avis', icon: 'star', title: 'Demandes d\'avis Google automatiques', desc: 'Après une prestation, votre client reçoit une invitation à laisser un avis sur votre fiche Google.', gain: 'Plus d\'avis, donc plus de confiance et un meilleur classement local', price: 100 },
   { id: 'rdv', icon: 'calendar', title: 'Prise de rendez-vous en ligne', desc: 'Vos clients choisissent un créneau directement sur le site, ajouté à votre agenda, avec rappel automatique.', gain: 'Moins d\'appels manqués, moins de rendez-vous oubliés', price: 100 },
   { id: 'devis', icon: 'quote', title: 'Devis en ligne guidé', desc: 'Un formulaire en quelques étapes qui pose les bonnes questions et permet au client de joindre des photos.', gain: 'Des demandes déjà qualifiées avant même votre appel', price: 150 },
-  { id: 'entretien', icon: 'shield', title: 'Entretien du site', desc: 'Hébergement, mises à jour, sécurité, sauvegardes et petites modifications pendant un an.', gain: 'Un site toujours en ligne et à jour, sans vous en occuper', price: 150, note: '1 an' },
+  { id: 'entretien', icon: 'shield', title: 'Entretien du site', desc: 'Hébergement, mises à jour, sécurité, sauvegardes et petites modifications, sans abonnement.', gain: 'Un site toujours en ligne et à jour, sans vous en occuper', price: 150 },
 ];
 
 const optGrid = document.getElementById('opt-grid');
